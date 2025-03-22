@@ -1,0 +1,32 @@
+"use client"
+import Link from "next/link"
+import { usePathname } from "next/navigation";
+import Image from 'next/image'
+
+export default function Menu(){
+    const pathName = usePathname();
+    console.log(pathName);
+
+    return(
+        <>
+        <div className="flex justify-between">
+            <div className="h-26">
+                <Image src="/Inicio.png" width={500} height={500} alt="nada"/>
+            </div>
+
+            <header role="banner" className="flex p-4 pr-12 pt-10 justify-end">
+                <ul className="flex gap-6">
+                <Link href="/login" >
+                        <li className="text-xl py-2 px-4">Iniciar Sesión</li>
+                </Link>
+                <Link href="/register" >
+                    <button className="text-xl py-2 px-4 rounded hover:cursor-pointer bg-[#B4DFFC] text-white hover:bg-blue-400">
+                        <li className="">Registrarse</li>
+                    </button>
+                </Link>
+                </ul>
+            </header>
+        </div>
+        </>
+    )
+}

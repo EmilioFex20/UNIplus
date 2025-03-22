@@ -11,11 +11,11 @@ export default function NavBar(){
             <h1 className="text-2xl font-bold">UNI+</h1>
             <ul className="flex gap-4">
                 <Link href="/about">
-                    <li className={pathName == "/about" ? "font-bold" : ""}>About</li>
+                    <li className={pathName == "/about" ? "font-bold" : ""}>Iniciar Sesión</li>
                 </Link>
                 
                 <Link href="/">
-                    <li className={pathName == "/" ? "font-bold" : ""}>Home</li>
+                    <li className={pathName == "/" ? "font-bold" : ""}>Registrarse</li>
                 </Link>
             </ul>
         </header>
