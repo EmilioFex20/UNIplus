@@ -9,11 +9,6 @@ export default function Menu(){
 
     return(
         <>
-        <div className="flex justify-between">
-            <div className="h-26">
-                <Image src="/Inicio.png" width={500} height={500} alt="nada"/>
-            </div>
-
             <header role="banner" className="flex p-4 pr-12 pt-10 justify-end">
                 <ul className="flex gap-6">
                 <Link href="/login" >
@@ -26,7 +21,6 @@ export default function Menu(){
                 </Link>
                 </ul>
             </header>
-        </div>
         </>
     )
 }
