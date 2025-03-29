@@ -1,12 +1,12 @@
 import Link from "next/link";
 
-export default function Home() {
+export default function LoginPage() {
   return (
     <div className="flex flex-col justify-center items-center h-screen bg-gray-100 gap-4 ">
       <h1 className="text-black text-3xl">Inicar Sesión</h1>
       <div className="flex gap-1">
         <h2 className="text-black text-sm">¿Es tu primera vez?</h2>
-        <Link href="/signup" className="text-black text-sm">
+        <Link href="/register" className="text-black text-sm">
           Registrate
         </Link>
       </div>
