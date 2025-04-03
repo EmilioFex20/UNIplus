@@ -6,7 +6,13 @@ export default function Home() {
     <>
       <div className="flex justify-between">
         <div className="h-26">
-            <Image src="/Inicio.png" width={500} height={500} alt="imagen"/>
+          <Image
+            src="/logoChicoSencillo.svg"
+            width={500}
+            height={500}
+            alt="imagen"
+            class="filter-blue"
+          />
         </div>
         <Menu></Menu>
       </div>

@@ -14,9 +14,16 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #ffffff;
     --foreground: #ededed;
   }
+}
+
+/*Colors to change the svg*/
+.filter-blue {
+  /*#6492C0*/
+  filter: invert(58%) sepia(59%) saturate(301%) hue-rotate(169deg)
+    brightness(84%) contrast(95%);
 }
 
 body {
