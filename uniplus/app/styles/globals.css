@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ANIMACIONES PERSONALIZADAS */
 @keyframes moveCloud {
   0% {
     transform: translateX(-200vw);
@@ -20,7 +19,6 @@
   position: absolute;
 }
 
-/* ROOT & THEME VARIABLES */
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -33,7 +31,6 @@
   --font-mono: var(--font-geist-mono);
 }
 
-/* MODO OSCURO */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #ffffff;
@@ -41,13 +38,11 @@
   }
 }
 
-/* ESTILO PARA SVG AZULADO */
 .filter-blue {
   filter: invert(58%) sepia(59%) saturate(301%) hue-rotate(169deg)
     brightness(84%) contrast(95%);
 }
 
-/* RESET Y PERSONALIZACIÓN GLOBAL */
 html,
 body {
   margin: 0;
