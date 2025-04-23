@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes moveCloud {
+  0% {
+    transform: translateX(-200vw);
+  }
+  100% {
+    transform: translateX(200vw);
+  }
+}
+
+.animate-cloud {
+  animation-name: moveCloud;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  position: absolute;
+}

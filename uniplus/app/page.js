@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Menu from "./components/menu";
 
+
 export default function Home() {
   const nubes = Array.from({ length: 55 }, (_, i) => {
     const size = `${Math.random() * 400 + 50}px`; 
