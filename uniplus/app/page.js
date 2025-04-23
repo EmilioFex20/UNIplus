@@ -1,5 +1,8 @@
 import Image from "next/image";
-import Menu from "./components/menu";
+import Menu from "./components/LandingMenu";
+import LandingMenu from "./components/LandingMenu";
+import FooterLandingPage from "./components/FooterLandingPage";
+import LandingPageBody from "./components/LandingPageBody";
 
 
 export default function Home() {
@@ -38,17 +41,15 @@ export default function Home() {
         />
       ))}
 
-      <div className="absolute top-0 left-0 right-0 p-4 flex justify-between items-center z-10">
-        <div className="h-26">
-          <Image
-            src="/logoChicoSencillo.svg"
-            width={500}
-            height={500}
-            alt="imagen"
-            className="filter-blue"
-          />
-        </div>
+      <div className="w-full">
+        <LandingMenu></LandingMenu>
+        <LandingPageBody></LandingPageBody>
+
+
+
+        <FooterLandingPage></FooterLandingPage>
         <Menu />
+
       </div>
     </main>
   );

@@ -1,20 +1,42 @@
-import Link from "next/link";
+"use client";
 
 export default function RegisterPage() {
+  async function onSubmit(event){
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData.entries());
+
+    const response = await fetch("/api/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+      alert("Usuario registrado correctamente");
+    } else {
+      alert("Error al registrar el usuario");
+    }
+  }
+
   return (
     <div className="flex flex-col justify-center items-center h-screen bg-gray-100 gap-4 ">
       <h1 className="text-black text-3xl">Registrate</h1>
       <div className="flex gap-1"></div>
-      <form className="flex flex-col gap-4 mt-4">
+      <form className="flex flex-col gap-4 mt-4" onSubmit={onSubmit}>
         <div className="flex gap-4">
           {" "}
           <input
             type="text"
+            name="name"
             placeholder="Nombre"
             className="p-2 border border-gray-300 rounded text-black"
           />
           <input
             type="text"
+            name="lastName"
             placeholder="Apellido"
             className="p-2 border border-gray-300 rounded text-black"
           />
@@ -22,16 +44,18 @@ export default function RegisterPage() {
 
         <input
           type="text"
+          name="email"
           placeholder="Correo electrónico"
           className="p-2 border border-gray-300 rounded text-black"
         />
         <input
           type="password"
+          name="password"
           placeholder="Contraseña"
           className="p-2 border border-gray-300 rounded text-black"
         />
         <button type="submit" className="p-2 bg-blue-400 text-white rounded">
-          Iniciar sesión
+          Registrarse
         </button>
       </form>
     </div>

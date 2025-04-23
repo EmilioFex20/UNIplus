@@ -6,7 +6,7 @@ if (!MONGODB_URI) {
   throw new Error("Por favor define la variable MONGODB_URI en .env.local");
 }
 
-let cached = global.mongoose || { conn: null, promise: null };
+let cached = global.mongoose || (global.mongoose = { conn: null, promise: null });
 
 export async function connectToDatabase() {
   if (cached.conn) return cached.conn;
