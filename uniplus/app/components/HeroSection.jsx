@@ -1,30 +1,13 @@
 import Image from "next/image";
 import FullButton from "./FullButton";
+import CloudsBg from "./CloudsBg";
 
 export default function HeroSection(){
     return (
         <>
-        <div className="relative ">
-            <div className="absolute inset-0 -z-10">
-                <div> 
-                <Image
-                    src="/esquinaSupIzq.svg"
-                    width={300}
-                    height={300}
-                    alt="imagen"
-                    />
-                </div>
-                <div className="flex justify-end absolute bottom-0 w-full">
-                    <Image
-                    src="/esquinaInfDer.svg"
-                    width={300}
-                    height={300}
-                    alt="imagen"
-                    />
-                </div>
-            </div>
-
-            <div className="py-12">
+        <div className="relative overflow-hidden">
+            <CloudsBg/>
+            <div className="py-12 relative z-10">
                 <div className="flex justify-center py-2">
                     <p className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#8cbaeb] to-[#3b86d6] font-serif leading-tight text-center w-2/3" style={{ fontFamily: '"Source Sans Pro", sans-serif' }}>
                     Porque la vida no viene con manual, en Uni+ te damos las herramientas que necesitas para despegar.
