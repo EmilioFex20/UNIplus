@@ -21,7 +21,7 @@ export default function LoginPage() {
     });
 
     if (response.ok) {
-      router.push('/profile')
+      router.push('/contact')
     } else {
       const errorData = await response.json();
       alert(errorData.message || "Error al iniciar sesión");
