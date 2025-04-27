@@ -1,26 +1,31 @@
 "use client";
 
+import { useRouter } from 'next/navigation';
 import Link from "next/link";
 
 export default function LoginPage() {
+  const router = useRouter()
+
   async function onSubmit(event){
     event.preventDefault();
     const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData.entries());
+    const email = formData.get('email');
+    const password = formData.get('password');
 
     const response = await fetch("/api/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify({email, password}),
     });
 
     if (response.ok) {
-      alert("Se inicio sesión correctamente");
+      router.push('/profile')
     } else {
-      alert("Error al registrar inicio de sesión");
-    }
+      const errorData = await response.json();
+      alert(errorData.message || "Error al iniciar sesión");
+      }
   }
 
   return (

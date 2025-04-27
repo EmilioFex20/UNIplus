@@ -12,18 +12,11 @@ export default async function handler(req, res) {
   try{
     const { email, password } = req.body;
 
-    if (!email || !password)
-      return res
-        .status(400)
-        .json({ message: "Todos los campos son obligatorios" });
-    try{
-      await connectToDatabase();
-    }
-    catch (error) {
-      console.error("Error conectando a la base de datos:", error);
-      return res.status(500).json({ message: "Error conectando a la base de datos" });
-    }
-    
+    if (!email || !password){
+      return res.status(400).json({ message: "Todos los campos son obligatorios" });}
+
+    await connectToDatabase();
+
     const user = await User.findOne({ email });
     if (!user) return res.status(400).json({ message: "Usuario no encontrado" });
   
@@ -40,7 +33,7 @@ export default async function handler(req, res) {
       serialize("authToken", token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === "development",
-        maxAge: 604800, // 7 días en segundos
+        maxAge: 604800,
         sameSite: "strict",
         path: "/",
       })
@@ -52,5 +45,4 @@ export default async function handler(req, res) {
     console.error("Error inesperado:", error);
     return res.status(500).json({ message: "Error interno del servidor" });
   }
- 
 }
