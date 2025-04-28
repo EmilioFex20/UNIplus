@@ -1,6 +1,33 @@
+"use client";
+
+import { useRouter } from 'next/navigation';
 import Link from "next/link";
 
 export default function LoginPage() {
+  const router = useRouter()
+
+  async function onSubmit(event){
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const email = formData.get('email');
+    const password = formData.get('password');
+
+    const response = await fetch("/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({email, password}),
+    });
+
+    if (response.ok) {
+      router.push('/contact')
+    } else {
+      const errorData = await response.json();
+      alert(errorData.message || "Error al iniciar sesión");
+      }
+  }
+
   return (
     <div className="flex flex-col justify-center items-center h-screen bg-gray-100 gap-4 ">
       <h1 className="text-black text-3xl">Inicar Sesión</h1>
@@ -10,14 +37,16 @@ export default function LoginPage() {
           Registrate
         </Link>
       </div>
-      <form className="flex flex-col gap-4 mt-4">
+      <form className="flex flex-col gap-4 mt-4" onSubmit={onSubmit}>
         <input
           type="text"
+          name="email"
           placeholder="Correo electrónico"
           className="p-2 border border-gray-300 rounded text-black"
         />
         <input
           type="password"
+          name="password"
           placeholder="Contraseña"
           className="p-2 border border-gray-300 rounded text-black"
         />
