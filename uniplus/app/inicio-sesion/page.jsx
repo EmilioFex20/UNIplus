@@ -21,7 +21,7 @@ export default function LoginPage() {
     });
 
     if (response.ok) {
-      router.push('/contact')
+      router.push('/contacto')
     } else {
       const errorData = await response.json();
       alert(errorData.message || "Error al iniciar sesión");
@@ -33,7 +33,7 @@ export default function LoginPage() {
       <h1 className="text-black text-3xl">Inicar Sesión</h1>
       <div className="flex gap-1">
         <h2 className="text-black text-sm">¿Es tu primera vez?</h2>
-        <Link href="/register" className="text-black text-sm">
+        <Link href="/registro" className="text-black text-sm">
           Registrate
         </Link>
       </div>
