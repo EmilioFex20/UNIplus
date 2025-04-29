@@ -1,6 +1,10 @@
 "use client";
 
+import { useRouter } from 'next/navigation';
+
 export default function RegisterPage() {
+  const router = useRouter()
+
   async function onSubmit(event){
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -15,7 +19,7 @@ export default function RegisterPage() {
     });
 
     if (response.ok) {
-      alert("Usuario registrado correctamente");
+      router.push('/inicio-sesion')    
     } else {
       alert("Error al registrar el usuario");
     }
