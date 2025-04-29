@@ -22,8 +22,8 @@ export default function LandingMenu() {
           className="filter-blue relative right-15"
           />
           <div className="flex gap-6 self-center">
-          <BorderButton href="/register" text="Registrarse" />
-          <FullButton href="/login" text="Iniciar Sesión"/>
+          <BorderButton href="/registro" text="Registrarse" />
+          <FullButton href="/inicio-sesion" text="Iniciar Sesión"/>
           </div>
         </ul>
       </header>

@@ -25,7 +25,7 @@ export default async function RootLayout({ children }) {
   const cookieStore = await cookies();
   const token = cookieStore.get("authToken")?.value;
   if (!token) {
-    redirect("/login");
+    redirect("/inicio-sesion");
   }
   try {
     const { payload } = await jwtVerify(
@@ -34,7 +34,7 @@ export default async function RootLayout({ children }) {
     );
   } catch (error) {
     console.error("Token inválido o expirado:", error);
-    redirect("/login");
+    redirect("/inicio-sesion");
   }
 
 
