@@ -61,7 +61,7 @@ export default function NavBar(){
           </div>
         </header>
           <div className="w-full overflow-hidden" style={{ marginTop: "-80px" }}>
-          <img src="/nubes.svg" alt="Cloud divider" className="w-full" />
+          <img src="/nubes.png" alt="Cloud divider" className="w-full" />
         </div>
       </div>
     )
