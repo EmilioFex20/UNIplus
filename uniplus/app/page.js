@@ -11,6 +11,6 @@ export default function Home() {
         <LandingMenu></LandingMenu>
         <LandingPageBody></LandingPageBody>
         <FooterLandingPage></FooterLandingPage>
-      </div>
+      </div> 
   );
 }

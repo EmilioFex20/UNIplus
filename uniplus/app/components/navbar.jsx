@@ -26,13 +26,13 @@ export default function NavBar(){
         <header className="bg-white py-4 z-10 relative">
           <div className="container mx-auto px-4 flex items-center justify-between">
             <div className="flex items-center">
-              <div className="w-16 h-16 bg-sky-200 rounded-full flex items-center justify-center mr-4">
+              <div className="w-20 h-20 bg-sky-200 rounded-full flex items-center justify-center mr-4">
                 <Image
-                  src="/placeholder.svg?height=40&width=40"
+                  src="/logoChicoSencillo.svg"
                   alt="Logo"
-                  width={40}
-                  height={40}
-                  className="opacity-70"
+                  width={70}
+                  height={70}
+                  className="filter-white"
                 />
               </div>
             </div>
@@ -40,7 +40,7 @@ export default function NavBar(){
               <ul className="flex space-x-8 md:space-x-12">
                 {[
                   { href: "/perfil", label: "PERFIL" },
-                  { href: "/cursos", label: "CURSOS" },
+                  { href: "/courses", label: "CURSOS" },
                   { href: "/ajustes", label: "AJUSTES" },
                   { href: "/contacto", label: "CONTACTO" },
                 ].map((link) => (
@@ -61,7 +61,7 @@ export default function NavBar(){
           </div>
         </header>
           <div className="w-full overflow-hidden" style={{ marginTop: "-80px" }}>
-          <img src="/nubes.svg" alt="Cloud divider" className="w-full" />
+          <img src="/nubes.png" alt="Cloud divider" className="w-full" />
         </div>
       </div>
     )
