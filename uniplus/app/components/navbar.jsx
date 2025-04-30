@@ -2,67 +2,69 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import Avatar from "./Avatar";
 
 export default function NavBar(){
-    async function onClickLogout(){
-        const response = await fetch("/api/auth/logout", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
-        if (response.ok) {
-            window.location.href = "/";
-        } else {
-            const errorData = await response.json();
-            alert(errorData.message || "Error al cerrar sesión");
-        }
-    }
     const pathName = usePathname();
     console.log(pathName);
 
     return(
-        <div className="relative">
-        <header className="bg-white py-4 z-10 relative">
-          <div className="container mx-auto px-4 flex items-center justify-between">
+        <header>
+          <nav className="w-full bg-white text-white px-6 py-3 flex items-center justify-between">
             <div className="flex items-center">
-              <div className="w-20 h-20 bg-sky-200 rounded-full flex items-center justify-center mr-4">
+              <div className="flex items-center">
                 <Image
-                  src="/logoChicoSencillo.svg"
-                  alt="Logo"
-                  width={70}
-                  height={70}
-                  className="filter-white"
-                />
+                  src="/logoHorizontalGrande.svg"
+                  width={300}
+                  height={300}
+                  alt="imagen"
+                  className="filter-blue relative right-10"
+                /> 
+              </div>
+              {/* Menú */}
+              <div className="text-2xl flex items-center gap-8 text-[#2f66a5]">
+                <Link href="/" className="flex items-center gap-2 cursor-pointer hover:text-[#85baf7]">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-7">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Zm6-10.125a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0Zm1.294 6.336a6.721 6.721 0 0 1-3.17.789 6.721 6.721 0 0 1-3.168-.789 3.376 3.376 0 0 1 6.338 0Z" />
+                </svg>
+                  <span>Perfil</span>
+                </Link>
+                <Link href="/" className="flex items-center gap-2 cursor-pointer hover:text-[#85baf7]">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-7">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                  </svg>
+                  <span>Cursos</span>
+                </Link>
+                <Link href="/" className="flex items-center gap-2  cursor-pointer hover:text-[#85baf7]">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-7">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                  </svg>
+                  <span>Avances</span>
+                </Link>
               </div>
             </div>
-            <nav>
-              <ul className="flex space-x-8 md:space-x-12">
-                {[
-                  { href: "/perfil", label: "PERFIL" },
-                  { href: "/courses", label: "CURSOS" },
-                  { href: "/ajustes", label: "AJUSTES" },
-                  { href: "/contacto", label: "CONTACTO" },
-                ].map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} className="text-gray-800 font-bold hover:text-sky-500 transition-colors">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-
-                <li>
-                    <button onClick={onClickLogout} className="text-gray-800 font-bold hover:text-sky-500 transition-colors">
-                      CERRAR SESIÓN
-                    </button>
-                </li>
-              </ul>
-            </nav>
+            <div className="flex items-center gap-6 text-[#2f66a5]">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-10 cursor-pointer hover:text-[#85baf7]">
+                <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-10 cursor-pointer hover:text-[#85baf7]">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0M3.124 7.5A8.969 8.969 0 0 1 5.292 3m13.416 0a8.969 8.969 0 0 1 2.168 4.5" />
+              </svg>
+              <Avatar />
+            </div>
+          </nav>
+          <div className="relative w-full bg-white">
+            <Image
+              src="/nubes.png"
+              alt="Descripción de la imagen"
+              width={1920}             
+              height={1080}             
+              className="w-full h-auto object-cover inset-0 z-10"
+              sizes="100vw"
+              >
+                
+            </Image>
           </div>
         </header>
-          <div className="w-full overflow-hidden" style={{ marginTop: "-80px" }}>
-          <img src="/nubes.png" alt="Cloud divider" className="w-full" />
-        </div>
-      </div>
     )
 }
