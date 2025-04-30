@@ -38,7 +38,7 @@ export default function LandingPageTemas(){
                         height={200}
                         alt="imagen"
                     />
-                    <p className="text-center py-4 text-[#304861] font-bold text-xl">Finanzas Personales</p>
+                    <p className="text-center py-4 text-[#304861] font-bold text-xl">Economía</p>
                     </div>
                     <div>
                     <Image
@@ -47,7 +47,7 @@ export default function LandingPageTemas(){
                         height={200}
                         alt="imagen"
                     />
-                    <p className="text-center py-4 text-[#304861] font-bold text-xl">Tecnología Básica</p>
+                    <p className="text-center py-4 text-[#304861] font-bold text-xl">Tecnología</p>
                     </div>
                     <div>
                     <Image
