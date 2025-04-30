@@ -10,7 +10,7 @@ export default function NavBar(){
 
     return(
         <header>
-          <nav className="w-full bg-white text-white px-6 py-3 flex items-center justify-between">
+          <nav className="w-full bg-white text-white px-6 pt-3 flex items-center justify-between">
             <div className="flex items-center">
               <div className="flex items-center">
                 <Image
