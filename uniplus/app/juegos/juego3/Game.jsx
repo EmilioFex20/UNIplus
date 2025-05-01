@@ -21,6 +21,7 @@ export default function Game() {
           },
           create() {
             const img = this.add.image(100, 200, 'trueque').setInteractive();
+
             this.input.setDraggable(img);
 
             this.input.on('drag', (pointer, gameObject, dragX, dragY) => {
