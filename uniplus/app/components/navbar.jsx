@@ -10,7 +10,7 @@ export default function NavBar(){
 
     return(
         <header>
-          <nav className="w-full bg-white text-white px-6 pt-3 flex items-center justify-between">
+          <nav className="w-full  text-white px-6 pt-3 flex items-center justify-between">
             <div className="flex items-center">
               <div className="flex items-center">
                 <Image
@@ -21,9 +21,8 @@ export default function NavBar(){
                   className="filter-blue relative right-10"
                 /> 
               </div>
-              {/* Menú */}
               <div className="text-2xl flex items-center gap-8 text-[#2f66a5]">
-                <Link href="/perfil" className="flex items-center gap-2 cursor-pointer hover:text-[#85baf7]">
+                <Link href="/contacto" className="flex items-center gap-2 cursor-pointer hover:text-[#85baf7]">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-7">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Zm6-10.125a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0Zm1.294 6.336a6.721 6.721 0 0 1-3.17.789 6.721 6.721 0 0 1-3.168-.789 3.376 3.376 0 0 1 6.338 0Z" />
                 </svg>
@@ -53,7 +52,7 @@ export default function NavBar(){
               <Avatar />
             </div>
           </nav>
-          <div className="relative w-full bg-white">
+          <div className="relative w-full ">
             <Image
               src="/nubes.png"
               alt="Descripción de la imagen"
