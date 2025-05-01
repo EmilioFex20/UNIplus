@@ -1,18 +1,26 @@
+'use client';
+
 import { CourseCard } from "@/app/components/courseCard";
+import { useState } from "react";
 
 export default function Roadmap() {
+  const [idCursoActivo, setIdCursoActivo] = useState(null);
+
   return (
     <>
       <div
-        className="relative w-full h-screen bg-no-repeat bg-contain "
+        className="relative w-full h-screen bg-no-repeat bg-contain"
         style={{ backgroundImage: "url('/caminoRoadmap.svg')" }}
       >
-        <CourseCard idCurso={0} />
-        <CourseCard idCurso={1} />
-        <CourseCard idCurso={2} />
-        <CourseCard idCurso={3} />
-        <CourseCard idCurso={4} />
-        <CourseCard idCurso={5} />
+      {[0, 1, 2, 3, 4, 5].map((id) => (
+        <CourseCard
+          key={id}
+          idCurso={id}
+          idCursoActivo={idCursoActivo}
+          setIdCursoActivo={setIdCursoActivo}
+        />
+      ))}
+
       </div>
     </>
   );
