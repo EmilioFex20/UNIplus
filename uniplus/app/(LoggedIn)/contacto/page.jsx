@@ -1,14 +1,16 @@
 "use client"
 import { useState } from "react";
+import useUser from "@/pages/api/hookUser";
+
+
 export default function contact() {
   const [activeItem, setActiveItem] = useState("cursos");
-  let user="Usuario"
-
+  const { user, isLoading, isError } = useUser();
   return (
   <>
     <div className="flex px-50 ">
       <div className="w-3/5">
-        <p className="text-4xl font-bold pb-2 ">¡Hola {user}!</p>
+        <p className="text-4xl font-bold pb-2 ">{isLoading ? <span className="bg-gray-300 animate-pulse px-4 py-2 rounded w-24 inline-block" /> : `¡Hola ${user.name}!`}</p>
         <p className="text-xl pb-4">Manos a la obra</p>
         <div className="bg-blue-50 border-2 border-[#2f66a5] rounded-lg p-4 mr-15">
           <div className="flex justify-between">
