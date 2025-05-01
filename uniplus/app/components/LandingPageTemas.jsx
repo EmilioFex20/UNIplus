@@ -5,7 +5,7 @@ export default function LandingPageTemas(){
         <>
           <div className="justify-center relative bottom-1 ">
             <div className=" bg-gradient-to-b from-[#bfe4f9] to-[#ffffff] py-16">
-                <p className="text-3xl text-[#0e2d4e] font-bold bg-clip-text font-serif leading-tight text-center pb-4" style={{ fontFamily: '"Source Sans Pro", sans-serif' }}>
+                <p className="text-3xl text-[#0e2d4e] font-bold bg-clip-text leading-tight text-center pb-4">
                     Aprende sobre temas importantes en la vida, de forma práctica y divertida
                 </p>
                 <div className="w-30 mx-auto bg-[#1b5997] h-1 rounded mb-6"/>
