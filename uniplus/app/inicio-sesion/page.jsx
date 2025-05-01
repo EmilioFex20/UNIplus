@@ -1,5 +1,5 @@
 "use client";
-
+import styles from './page.module.css';
 import { useRouter } from 'next/navigation';
 import Link from "next/link";
 
@@ -29,14 +29,15 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen bg-gray-100 gap-4 ">
-      <h1 className="text-black text-3xl">Inicar Sesión</h1>
-      <div className="flex gap-1">
-        <h2 className="text-black text-sm">¿Es tu primera vez?</h2>
-        <Link href="/registro" className="text-black text-sm">
-          Registrate
-        </Link>
-      </div>
+    <div className={`${styles.fondo} flex justify-center items-center h-screen`}>
+      <div className="bg-white/10 backdrop-blur-md p-8 rounded-lg shadow-lg w-full max-w-md flex flex-col items-center gap-4">
+        <h1 className="text-black text-3xl">Iniciar Sesión</h1>
+        <div className="flex gap-1">
+          <h2 className="text-black text-sm">¿Es tu primera vez?</h2>
+          <Link href="/registro" className="text-blue-500 text-sm underline">
+            Regístrate
+          </Link>
+        </div>
       <form className="flex flex-col gap-4 mt-4" onSubmit={onSubmit}>
         <input
           type="text"
@@ -54,6 +55,7 @@ export default function LoginPage() {
           Iniciar sesión
         </button>
       </form>
+    </div>
     </div>
   );
 }
