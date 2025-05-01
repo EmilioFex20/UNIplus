@@ -64,5 +64,6 @@ export default function RegisterPage() {
         </button>
       </form>
     </div>
+    </div>
   );
 }
