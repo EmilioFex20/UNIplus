@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { ModuleCard } from "./moduleCard";
+import { cursosData } from "@/app/data/cursosData";
 
 export function CourseCard({ idCurso, idCursoActivo, setIdCursoActivo }) {
   const isOpen = idCursoActivo === idCurso;
@@ -9,32 +10,15 @@ export function CourseCard({ idCurso, idCursoActivo, setIdCursoActivo }) {
   const showInfoHandler = () => {
     setIdCursoActivo(isOpen ? null : idCurso);
   };
-  const positions = [
-    "left-[10%] top-[25%]", // Desarrollo Personal
-    "left-[28%] top-[12%]", // Finanzas Personales
-    "left-[40%] top-[20%]", // Tecnología Básica
-    "left-[60%] top-[29%]", // Creatividad y Habilidades
-    "left-[75%] top-[30%]", // Bienestar y Salud
-    "left-[90%] top-[28%]", // Emprendimiento y Negocios
-  ];
+  const curso = cursosData[idCurso];
+  const imagenModulo = curso.imagen;
+  const posicionModuloInfo = curso.posicion;
 
-  const positionClass = positions[idCurso];
-
-  const imageCourse = [
-    "/logoDesarrolloPersonal.svg", // Desarrollo Personal
-    "/logoFinanzasPersonales.svg", // Finanzas Personales
-    "/logoTecnolBasica.svg", // Tecnología Básica
-    "/logoArte.svg", // Creatividad y Habilidades
-    "/logoBienestarSalud.svg", // Bienestar y Salud
-    "/logoEmprenNegocios.svg", // Emprendimiento y Negocios
-  ];
-
-  const imageCourseClass = imageCourse[idCurso];
 
   return (
     <>
       <div
-        className={`absolute transform -translate-x-1/2 -translate-y-1/2 ${positionClass}`}
+        className={`absolute transform -translate-x-1/2 -translate-y-1/2 ${posicionModuloInfo}`}
       >
         <div className="flex flex-col items-center">
           <button
@@ -48,7 +32,7 @@ export function CourseCard({ idCurso, idCursoActivo, setIdCursoActivo }) {
               <Image
                 width={80}
                 height={80}
-                src={imageCourseClass || "/placeholder.svg?height=48&width=48"}
+                src={imagenModulo || "/placeholder.svg?height=48&width=48"}
                 alt="Logo"
                 className="object-contain"
               />
