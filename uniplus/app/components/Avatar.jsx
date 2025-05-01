@@ -37,7 +37,7 @@ export default function Avatar() {
           onClick={() => setIsOpen(!isOpen)}
         />
         {isOpen && (
-        <div className="absolute right-0 bg-white text-black rounded-lg w-44 z-50">
+        <div className="absolute right-0 bg-white text-black rounded-lg w-44 z-50 border-2 border-gray-400">
             <div className="p-2">
                 <ul className="text-sm py-2">
                     <button className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2 w-full"> 
