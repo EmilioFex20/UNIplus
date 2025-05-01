@@ -1,5 +1,5 @@
 "use client";
-
+import styles from './page.module.css';
 import { useRouter } from 'next/navigation';
 
 export default function RegisterPage() {
@@ -26,7 +26,8 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen bg-gray-100 gap-4 ">
+    <div className={`${styles.fondo} flex justify-center items-center h-screen`}>
+      <div className="bg-white/10 backdrop-blur-md p-12 rounded-lg shadow-lg w-full max-w-lg flex flex-col items-center gap-4">
       <h1 className="text-black text-3xl">Registrate</h1>
       <div className="flex gap-1"></div>
       <form className="flex flex-col gap-4 mt-4" onSubmit={onSubmit}>
@@ -58,10 +59,12 @@ export default function RegisterPage() {
           placeholder="Contraseña"
           className="p-2 border border-gray-300 rounded text-black"
         />
-        <button type="submit" className="p-2 bg-blue-400 text-white rounded">
+        <button type="submit" className="p-2 bg-blue-400 text-white rounded hover:bg-blue-500 active:bg-blue-600 transition-colors duration-200">
           Registrarse
         </button>
       </form>
     </div>
+    </div>
+    
   );
 }
