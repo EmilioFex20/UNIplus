@@ -9,7 +9,7 @@ export default function HeroSection(){
             <CloudsBg/>
             <div className="py-12 relative z-10">
                 <div className="flex justify-center py-2">
-                    <p className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#8cbaeb] to-[#3b86d6] font-serif leading-tight text-center w-2/3" style={{ fontFamily: '"Source Sans Pro", sans-serif' }}>
+                    <p className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#8cbaeb] to-[#3b86d6] font-serif leading-tight text-center w-2/3">
                     Porque la vida no viene con manual, en Uni+ te damos las herramientas que necesitas para despegar.
                     </p>
                 </div>
