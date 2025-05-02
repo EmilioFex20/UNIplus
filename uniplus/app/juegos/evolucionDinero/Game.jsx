@@ -15,7 +15,7 @@ export default function Game() {
             personaje: "cavernicola",
             item: "piedra",
             cantidad: 3,
-            frase: "Cavernícola querer piedras grandes\n a cambio te daré un pollo",
+            frase: "Cavernícola querer piedras grandes\n a cambio yo darte pollo",
           },
           {
             personaje: "romano",
@@ -30,22 +30,22 @@ export default function Game() {
             frase: "Una moneda bastará para mi filosofía",
           },
           {
-            personaje: "mujer_billete",
+            personaje: "mujer",
             item: "billete",
             cantidad: 1,
             frase: "¿Puedes darme un billete? Tengo que ir de compras",
           },
           {
-            personaje: "hombre_tarjeta",
+            personaje: "hombre",
             item: "tarjeta",
             cantidad: 1,
-            frase: "Prefiero pagar con tarjeta, es más práctico",
+          frase: "Te puedo vender una licuadora,\nno te preocupes si no tienes efectivo\nacpeto tarjeta de crédito y débito",
           },
           {
             personaje: "empresario",
             item: "criptomoneda",
             cantidad: 2,
-            frase: "Acepto solo cripto, es el futuro del dinero",
+            frase: "Hola sabes que es la criptomoneda?\n me gustaría comprar un par de criptomonedas\n a cambio te doy un par de acciones",
           },
         ];
         this.pedidoActual = 0;
@@ -62,8 +62,8 @@ export default function Game() {
         this.load.image("cavernicola", "/assets/caveman.png");
         this.load.image("romano", "/assets/roman.png");
         this.load.image("griego", "/assets/greek.png");
-        this.load.image("mujer_billete", "/assets/cashLady.png");
-        this.load.image("hombre_tarjeta", "/assets/cardMan.png");
+        this.load.image("mujer", "/assets/cashLady.png");
+        this.load.image("hombre", "/assets/cardMan.png");
         this.load.image("empresario", "/assets/bankman.png");
       }
 
@@ -82,6 +82,9 @@ export default function Game() {
           zonaDropeo.input.hitArea.height
         );
 
+        if (this.frasePersonaje) {
+          this.frasePersonaje.destroy();
+        }
         this.textoPedido = this.add.text(20, 20, "", {
           fontSize: "16px",
           fill: "#000",
@@ -154,6 +157,7 @@ export default function Game() {
             this.textoPedidoEquivocado.setText(
               `El ${pedido.personaje} no quiere ${gameObject.name}`
             );
+            
             this.time.delayedCall(2000, () => {
               this.textoPedidoEquivocado.destroy();
             });
@@ -175,7 +179,18 @@ export default function Game() {
       }
 
       cargarPedido() {
+        if (this.frasePersonaje) {
+          this.frasePersonaje.destroy();
+          this.frasePersonaje = null;
+        }
+      
+        if (this.textoPedidoEquivocado) {
+          this.textoPedidoEquivocado.destroy();
+          this.textoPedidoEquivocado = null;
+        }
+      
         if (this.personaje) this.personaje.destroy();
+
         const pedido = this.pedidos[this.pedidoActual];
         if (!pedido) {
           this.textoPedido.setText("Completaste todos los trueques.");
@@ -205,7 +220,6 @@ export default function Game() {
         this.textoPedido.setText(
           `El ${pedido.personaje} quiere ${pedido.cantidad} ${pedido.item}(s)`
         );
-
         this.frasePersonaje = this.add.text(250, 200, "", {
           fontSize: "13px",
           fill: "#000",
