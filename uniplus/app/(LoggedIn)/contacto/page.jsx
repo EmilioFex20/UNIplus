@@ -1,6 +1,7 @@
 "use client"
 import { useState } from "react";
 import useUser from "@/pages/api/hookUser";
+import ScrollContinueCourses from "@/app/components/scrollContinueCourses";
 
 
 export default function contact() {
@@ -32,14 +33,11 @@ export default function contact() {
             </div>
           </div>
           {activeItem === "cursos" && (
-            <div>
-              <h2 className="text-xl font-semibold">Contenido de Cursos</h2>
-              <p>Aquí van los módulos y lecciones del curso general.</p>
-            </div>
+            <ScrollContinueCourses></ScrollContinueCourses>
           )}
           {activeItem === "medallas" && (
             <div>
-              <h2 className="text-xl font-semibold">Contenido de Medallas</h2>
+              <h2 className="text-xl font-semibold">Tus Medallas</h2>
               <p>Medallas Obtenidas</p>
             </div>
           )}
