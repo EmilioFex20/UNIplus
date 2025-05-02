@@ -1,9 +1,11 @@
 import { ModuleInfoCard } from "@/app/components/moduleInfoCard";
 import { CourseInfo } from "@/app/components/courseInfo";
 import { cursosData } from "@/app/data/cursosData";
+import { use } from "react";
 
-export default async function CoursePage({ params }) {
-  const idCurso = parseInt(params.idCurso, 10);
+export default function CoursePage({ params }) {
+  const resolvedParams = use(params);
+  const idCurso = parseInt(resolvedParams.idCurso, 10);
   const curso = cursosData[idCurso];
   const nombresCursos = curso.nombre;
   const descripcionCursos = curso.descripcion;
