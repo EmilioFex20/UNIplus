@@ -12,7 +12,7 @@ const UserSchema = new mongoose.Schema({
   creatividadState:{type: Number, default: 0,required: false },
   SaludState:{type: Number, default: 0,required: false },
   DesarrolloState:{type: Number, default: 0,required: false },
-  tecnologiaState:{type: Number, default: 0,required: false },
+  tecnologiaState:{type: Number, default: 0,required: false }
 });
 
 export default mongoose.models.User || mongoose.model("User", UserSchema);

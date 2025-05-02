@@ -7,7 +7,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: "Método no permitido" });
 
   try {
-    const { name, lastName, email, password, coursesCompleted=0, modulesCompleted=0, economiaState=0, finanzasState=0, creatividadState=0, SaludState=0, DesarrolloState=0, tecnologiaState=0 } = req.body;
+    const { name, lastName, email, password, coursesCompleted, modulesCompleted, economiaState, finanzasState, creatividadState, SaludState, DesarrolloState, tecnologiaState} = req.body;
 
     if (!email || !password || !name || !lastName) {
       return res.status(400).json({ message: "Todos los campos son obligatorios" });
