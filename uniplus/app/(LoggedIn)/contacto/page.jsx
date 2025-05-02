@@ -1,20 +1,67 @@
 "use client"
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import useUser from "@/pages/api/hookUser";
-
+import CoursesContinue from "@/app/components/CoursesContinue";
+import Image from "next/image";
 
 export default function contact() {
   const [activeItem, setActiveItem] = useState("cursos");
-  const { user, isLoading, isError } = useUser();
+  const { user, isLoading } = useUser();
+  const [pregunta, setPregunta] = useState(null);
+  const [racha, setAciertos] = useState(0);
+
+  const obtenerPregunta = (intentos = 0) => {
+    fetch('https://opentdb.com/api.php?amount=1&type=boolean')
+      .then(res => res.json())
+      .then(data => {
+        if (data.results && data.results.length > 0) {
+          setPregunta(data.results[0]);
+        } else {
+          if (intentos < 20) {
+            setTimeout(() => obtenerPregunta(intentos + 1), 500);
+          } else {
+            console.error('No se pudieron obtener preguntas después de varios intentos');
+          }
+        }
+      })
+      .catch(err => {
+        if (intentos < 20) {
+          setTimeout(() => obtenerPregunta(intentos + 1), 500);
+        } else {
+          console.error('Error al obtener la pregunta:', err);
+        }
+      });
+  };
+
+  useEffect(() => {
+    obtenerPregunta();
+  }, []);
+
+  const handleAnswer = (respuesta) => {
+    if (respuesta === pregunta.correct_answer) {
+      alert("¡Correcto!");
+      setAciertos(racha + 1);
+    } else {
+      alert("Incorrecto");
+      setAciertos(0);
+    }
+    obtenerPregunta();
+  };
+
+  function decodeHTML(html) {
+    const txt = document.createElement("textarea");
+    txt.innerHTML = html;
+    return txt.value;
+  }
   return (
   <>
-    <div className="flex px-50 ">
+    <div className="flex px-44 ">
       <div className="w-3/5">
-        <p className="text-4xl font-bold pb-2 ">{isLoading ? <span className="bg-gray-300 animate-pulse px-4 py-2 rounded w-24 inline-block" /> : `¡Hola ${user.name}!`}</p>
-        <p className="text-xl pb-4">Manos a la obra</p>
+        <p className="text-4xl font-bold pb-2 text-black">{isLoading ? <span className="bg-gray-300 animate-pulse px-4 py-2 rounded w-24 inline-block" /> : `¡Hola ${user.name+user.economiaState}!`}</p>
+        <p className="text-xl pb-4 text-black">Manos a la obra</p>
         <div className="bg-blue-50 border-2 border-[#2f66a5] rounded-lg p-4 mr-15">
           <div className="flex justify-between">
-            <p className="text-xl font-bold">Mi Aprendizaje</p>
+            <p className="text-xl font-bold text-black">Mi Aprendizaje</p>
             <div className="flex text-gray-700 gap-4 ">
               <button onClick={() => setActiveItem("cursos")} className={`flex py-2 px-2 cursor-pointer box-border border-b-3 border-blue-50 hover:bg-gray-200 ${activeItem === "cursos"? "border-blue-600 font-bold text-black":"" }`}>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 mr-2">
@@ -31,24 +78,75 @@ export default function contact() {
               <p></p>
             </div>
           </div>
-          {activeItem === "cursos" && (
-            <div>
-              <h2 className="text-xl font-semibold">Contenido de Cursos</h2>
-              <p>Aquí van los módulos y lecciones del curso general.</p>
-            </div>
+          {activeItem === "cursos" && !isLoading && user && (
+            <CoursesContinue economia={user.economiaState} />
           )}
           {activeItem === "medallas" && (
-            <div>
-              <h2 className="text-xl font-semibold">Contenido de Medallas</h2>
-              <p>Medallas Obtenidas</p>
+            <div className="text-black">
+              <h2 className="text-xl font-semibold ">Tus Medallas</h2>
+              <p>Todavía no tienes ninguna medalla</p>
             </div>
           )}
           
         </div>
 
       </div>
-      <div className="">
-        sd
+      <div className="bg-[#0c386b] w-2/5 rounded p-6 self-start">
+        <div className="flex justify-between pb-2">
+          <p className="text-white text-3xl content-center">Bienvenido a Uni+</p>
+          <Image
+            src="/logoChicoSencillo.svg"
+            width={120}
+            height={120}
+            alt="imagen"
+            className="relative bottom-2"
+          />
+        </div>
+        <hr className="text-white border-b-2 rounded mb-6 "/>
+        <div className="text-white text-xl">
+          <div className="flex bg-[#1d4e85] rounded px-10 py-2 m-4 justify-between">
+            <p>Cursos Realizados <b className="text-green-400">0/6</b></p><p>Módulos Terminados <b className="text-green-400">0/30</b></p>
+          </div>
+          <div className="flex bg-[#1d4e85] rounded px-10 py-2 m-4 justify-between">
+            <p className="self-center ">
+              Racha diaria
+            </p>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-10 ml-2 self-center text-red-400">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z" />
+            </svg>
+            <p className="text-red-300 self-center text-2xl">0</p>
+            <p className="self-center ml-10 text-[1rem] text-gray-300">
+              Completa un módulo diariamente para continuar tu racha.
+            </p>
+          </div>
+          
+          <div className="bg-[#1d4e85] rounded px-10 py-2 m-4">
+                  {pregunta ? (
+                <>
+                  <p className="text-center pb-4">Preguntas de Cultura General</p>
+                  <p className="text-[.9em] text-gray-300 mb-4 text-center">{decodeHTML(pregunta.question)}</p>
+                  <div className="flex justify-center gap-4 mb-4">
+                    <button 
+                      onClick={() => handleAnswer("True")} 
+                      className="bg-green-500 text-white px-4 py-2 rounded border-2 border-green-500 hover:bg-green-800 hover:border-white"
+                    >
+                      Verdadero
+                    </button>
+                    <button 
+                      onClick={() => handleAnswer("False")} 
+                      className="bg-red-500 text-white px-4 py-2 rounded border-2 border-red-500 hover:bg-red-800 hover:border-white"
+                    >
+                      Falso
+                    </button>
+                  </div>
+                  <p className="text-white">Racha: {racha}</p>
+                </>
+              ) : ( 
+                <div className="h-48" />
+              )}  
+          </div>
+        </div>
       </div>
     </div>
   </>

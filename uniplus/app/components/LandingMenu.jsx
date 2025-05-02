@@ -12,8 +12,8 @@ export default function LandingMenu() {
   return (
     <>
     <div className="px-60 bg-blue-100">
-      <header role="banner" className="w-full ">
-        <ul className="flex justify-between">
+      <header className="w-full ">
+        <div className="flex justify-between">
           <Image
           src="/logoHorizontalGrande.svg"
           width={300}
@@ -25,7 +25,7 @@ export default function LandingMenu() {
           <BorderButton href="/registro" text="Registrarse" />
           <FullButton href="/inicio-sesion" text="Iniciar Sesión"/>
           </div>
-        </ul>
+        </div>
       </header>
     </div>
     </>
