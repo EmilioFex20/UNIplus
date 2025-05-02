@@ -17,7 +17,7 @@ export default function contact() {
         if (data.results && data.results.length > 0) {
           setPregunta(data.results[0]);
         } else {
-          if (intentos < 5) {
+          if (intentos < 20) {
             setTimeout(() => obtenerPregunta(intentos + 1), 500);
           } else {
             console.error('No se pudieron obtener preguntas después de varios intentos');
@@ -25,7 +25,7 @@ export default function contact() {
         }
       })
       .catch(err => {
-        if (intentos < 5) {
+        if (intentos < 20) {
           setTimeout(() => obtenerPregunta(intentos + 1), 500);
         } else {
           console.error('Error al obtener la pregunta:', err);
@@ -57,7 +57,7 @@ export default function contact() {
   <>
     <div className="flex px-44 ">
       <div className="w-3/5">
-        <p className="text-4xl font-bold pb-2 text-black">{isLoading ? <span className="bg-gray-300 animate-pulse px-4 py-2 rounded w-24 inline-block" /> : `¡Hola ${user.name}!`}</p>
+        <p className="text-4xl font-bold pb-2 text-black">{isLoading ? <span className="bg-gray-300 animate-pulse px-4 py-2 rounded w-24 inline-block" /> : `¡Hola ${user.name+user.economiaState}!`}</p>
         <p className="text-xl pb-4 text-black">Manos a la obra</p>
         <div className="bg-blue-50 border-2 border-[#2f66a5] rounded-lg p-4 mr-15">
           <div className="flex justify-between">
@@ -79,7 +79,7 @@ export default function contact() {
             </div>
           </div>
           {activeItem === "cursos" && !isLoading && user && (
-            <CoursesContinue economia={user.economia} />
+            <CoursesContinue economia={user.economiaState} />
           )}
           {activeItem === "medallas" && (
             <div className="text-black">
