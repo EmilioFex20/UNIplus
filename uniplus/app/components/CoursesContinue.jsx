@@ -7,7 +7,7 @@ const temas = [
     description: "Aprende los conceptos esenciales sobre economía para comprender el mundo y mejorar tu manejo del dinero.",
     color: "#e4c126",
     iconPath: "M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z",
-    href: "/"
+    href: "/courses/1/"
   },
   {
     title: "Salud y Bienestar",
@@ -46,7 +46,7 @@ const temas = [
   }
 ];
 
-export default function CoursesContinue() {
+export default function CoursesContinue({economia}) {
   const [startIndex, setStartIndex] = useState(0);
   const [mounted, setMounted] = useState(false);
 
@@ -71,7 +71,7 @@ export default function CoursesContinue() {
       <h2 className="text-xl font-semibold mb-2 text-black">Continuar aprendiendo</h2>
       <div className="flex flex-col text-black">
         {visible.map((tema, key) => (
-            <Link href={tema.href} key={key} className="flex py-3 my-2 shadow bg-gray-50">
+            <Link href={`${tema.href}${economia}`} key={key} className="group flex py-3 my-2 shadow bg-gray-50 hover:bg-[#c9eaff]  transition duration-300">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -83,10 +83,15 @@ export default function CoursesContinue() {
                 >
                 <path strokeLinecap="round" strokeLinejoin="round" d={tema.iconPath} />
                 </svg>
-                <div className='flex'>
+                <div className='flex justify-between w-full'>
                     <div className="content-center pl-4">
                         <p className="text-xl font-bold">{tema.title}</p>
                         <p className="text-[#333333]">{tema.description}</p>
+                    </div>
+                    <div className='content-center mx-2 text-transparent'>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-15 rounded-full group-hover:bg-green-500/60 group-hover:text-white transition duration-300">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
                     </div>
                 </div>
             </Link>
