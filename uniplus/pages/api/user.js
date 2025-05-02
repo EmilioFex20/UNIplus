@@ -16,7 +16,6 @@ export default async function handler(req, res) {
 
     if (!user) return res.status(404).json({ message: "Usuario no encontrado" });
 
-    // Opcional: no mandes la contraseña
     const { password, ...safeUser } = user;
 
     res.status(200).json(safeUser);
