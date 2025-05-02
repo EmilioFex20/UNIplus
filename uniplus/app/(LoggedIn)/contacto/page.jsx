@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react";
 import useUser from "@/pages/api/hookUser";
-import ScrollContinueCourses from "@/app/components/scrollContinueCourses";
+import CoursesContinue from "@/app/components/CoursesContinue";
 
 
 export default function contact() {
@@ -11,11 +11,11 @@ export default function contact() {
   <>
     <div className="flex px-50 ">
       <div className="w-3/5">
-        <p className="text-4xl font-bold pb-2 ">{isLoading ? <span className="bg-gray-300 animate-pulse px-4 py-2 rounded w-24 inline-block" /> : `¡Hola ${user.name}!`}</p>
-        <p className="text-xl pb-4">Manos a la obra</p>
+        <p className="text-4xl font-bold pb-2 text-black">{isLoading ? <span className="bg-gray-300 animate-pulse px-4 py-2 rounded w-24 inline-block" /> : `¡Hola ${user.name}!`}</p>
+        <p className="text-xl pb-4 text-black">Manos a la obra</p>
         <div className="bg-blue-50 border-2 border-[#2f66a5] rounded-lg p-4 mr-15">
           <div className="flex justify-between">
-            <p className="text-xl font-bold">Mi Aprendizaje</p>
+            <p className="text-xl font-bold text-black">Mi Aprendizaje</p>
             <div className="flex text-gray-700 gap-4 ">
               <button onClick={() => setActiveItem("cursos")} className={`flex py-2 px-2 cursor-pointer box-border border-b-3 border-blue-50 hover:bg-gray-200 ${activeItem === "cursos"? "border-blue-600 font-bold text-black":"" }`}>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 mr-2">
@@ -33,11 +33,11 @@ export default function contact() {
             </div>
           </div>
           {activeItem === "cursos" && (
-            <ScrollContinueCourses></ScrollContinueCourses>
+            <CoursesContinue></CoursesContinue>
           )}
           {activeItem === "medallas" && (
-            <div>
-              <h2 className="text-xl font-semibold">Tus Medallas</h2>
+            <div className="text-black">
+              <h2 className="text-xl font-semibold ">Tus Medallass</h2>
               <p>Medallas Obtenidas</p>
             </div>
           )}

@@ -16,8 +16,9 @@ export default function NavBar(){
                 <Image
                   src="/logoHorizontalGrande.svg"
                   width={300}
-                  height={300}
+                  height={100}
                   alt="imagen"
+                  priority
                   className="filter-blue relative right-10"
                 /> 
               </div>

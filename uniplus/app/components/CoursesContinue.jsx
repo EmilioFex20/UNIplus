@@ -1,5 +1,5 @@
 "use client"
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 const temas = [
   {
@@ -46,8 +46,15 @@ const temas = [
   }
 ];
 
-export default function ScrollContinueCourses() {
+export default function CoursesContinue() {
   const [startIndex, setStartIndex] = useState(0);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  
+  if (!mounted) return null;
 
   const visible = temas.slice(startIndex, startIndex + 3);
 
@@ -61,8 +68,8 @@ export default function ScrollContinueCourses() {
 
   return (
     <div>
-      <h2 className="text-xl font-semibold mb-2">Continúa aprendiendo</h2>
-      <div className="flex flex-col">
+      <h2 className="text-xl font-semibold mb-2 text-black">Continuar aprendiendo</h2>
+      <div className="flex flex-col text-black">
         {visible.map((tema, key) => (
             <Link href={tema.href} key={key} className="flex py-3 my-2 shadow bg-gray-50">
                 <svg
