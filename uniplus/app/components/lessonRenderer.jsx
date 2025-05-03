@@ -2,8 +2,15 @@ import React from "react";
 import { Video } from "@/app/components/video";
 import { Infografia } from "@/app/components/infografia";
 import CloudsBg from "./CloudsBg";
+import Image from "next/image";
+import Link from "next/link";
 
-export default function LessonRenderer({ contenido }) {
+export default function LessonRenderer({
+  contenido,
+  idCurso,
+  idModulo,
+  idLeccion,
+}) {
   return (
     <div className="relative w-full flex justify-center items-center z-0">
       <CloudsBg />
@@ -16,11 +23,13 @@ export default function LessonRenderer({ contenido }) {
                 className="bg-[#4a7298] p-4 rounded-lg shadow w-3/4 text-center"
               >
                 {item.titulo && (
-                  <h2 className="text-xl text-white font-semibold mb-1">
+                  <h2 className="text-2xl text-white font-semibold mb-1">
                     {item.titulo}
                   </h2>
                 )}
-                {item.texto && <p className="text-white mb-1">{item.texto}</p>}
+                {item.texto && (
+                  <p className="text-white mb-1 text-xl">{item.texto}</p>
+                )}
               </div>
             );
           }
@@ -28,12 +37,9 @@ export default function LessonRenderer({ contenido }) {
             return (
               <div
                 key={index}
-                className="bg-[#b2dffd] p-4 rounded-lg shadow w-3/4 text-center text-[#4a7298] text-bold"
+                className="bg-[#b2dffd] p-4 flex rounded-lg shadow w-3/4 text-center text-xl text-[#4a7298]"
               >
-                <ul
-                  key={index}
-                  className="list-disc pl-6 space-y-1 w-full list-none"
-                >
+                <ul key={index} className="space-y-1 w-full list-none">
                   {item.items.map((text, i) => (
                     <li key={i}>{text}</li>
                   ))}
@@ -61,8 +67,43 @@ export default function LessonRenderer({ contenido }) {
               </div>
             );
           }
+          if (item.tipo === "gif") {
+            return (
+              <div
+                key={index}
+                className="relative w-full flex justify-center items-center"
+              >
+                <Image
+                  unoptimized={true}
+                  src={item.src}
+                  alt={item.alt}
+                  width={500}
+                  height={500}
+                  className="w-full max-w-2xl h-auto rounded-lg shadow-lg"
+                />
+              </div>
+            );
+          }
+          if (item.tipo === "examen") {
+            return (
+              <div key={index}>
+                <Link
+                  className="bg-[#4a7298] text-white px-4 py-2 rounded-lg mt-2"
+                  href={`/courses/${idCurso}/${idModulo}/${idLeccion}/${idModulo}`}
+                >
+                  Iniciar Autoevaluacion
+                </Link>
+              </div>
+            );
+          }
           return null;
         })}
+        <Link
+          href={`/courses/${idCurso}/${idModulo}/${idLeccion + 1}`}
+          className="bg-[#4a7298] text-white text-2xl px-6 py-3 rounded-lg mt-6 font-bold hover:bg-[#3a5a78]"
+        >
+          Ir a la siguiente Leccion
+        </Link>
       </div>
     </div>
   );

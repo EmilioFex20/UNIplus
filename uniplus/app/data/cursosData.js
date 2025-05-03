@@ -101,10 +101,52 @@ export const cursosData = [
             contenido: [
               {
                 tipo: "section",
-                titulo: "¿Qué hace que el dinero sea confiable?",
-                texto:
-                  "Debe ser duradero, divisible, portátil y aceptado por todos.",
+                titulo: "Para funcionar bien, el dinero debe tener estas seis cualidades (Functions of Money - The Economic Lowdown Podcast Series):",
               },
+              {
+                tipo: "list",
+                items: [
+                  "Durabilidad: resiste desgaste.",
+                  "Portabilidad: fácil de transportar.",
+                  "Divisibilidad: puede fraccionarse en unidades más pequeñas.",
+                  "Uniformidad: cada unidad es idéntica a otra.",
+                  "Escasez: oferta limitada para mantener valor.",
+                  "Aceptabilidad: aceptado por todos en la economía.",
+                ],
+              },
+              {
+                tipo: "gif",
+                src: "/gifs/EconomíaRecurso5Modulo1.gif",
+                alt: "Características del “buen” dinero",
+              },
+              {
+                tipo: "gif",
+                src: "/gifs/EconomíaRecurso5Modulo1(1).gif",
+                alt: "Características del “buen” dinero",
+              }
+            ],
+          },
+          {
+            nombre: "Juego 1: Evolución del dinero",
+            contenido: [
+              {
+                tipo: "section",
+                titulo: "Evolución del dinero",
+                texto: "En este juego, aprenderás sobre la evolución del dinero a través de diferentes eras y cómo ha cambiado su forma y función.",
+              },
+            ],
+          },
+          {
+            nombre: "Ejercicio práctico",
+            contenido: [
+              {
+                tipo: "section",
+                titulo: "Ejercicio práctico",
+                texto: "Reflexiona sobre cómo el dinero ha influido en tu vida y cómo lo usas en tu día a día. Y no te preocupes, ¡no es un examen!",
+              },
+              {
+                tipo: "examen"
+              }
             ],
           },
         ],
@@ -167,6 +209,19 @@ export const cursosData = [
                 texto:
                   "Debe ser duradero, divisible, portátil y aceptado por todos.",
               },
+            ],
+          },
+          {
+            nombre: "Ejercicio práctico",
+            contenido: [
+              {
+                tipo: "section",
+                titulo: "Ejercicio práctico",
+                texto: "Reflexiona sobre cómo el dinero ha influido en tu vida y cómo lo usas en tu día a día. Y no te preocupes, ¡no es un examen!",
+              },
+              {
+                tipo: "examen"
+              }
             ],
           },
         ],
