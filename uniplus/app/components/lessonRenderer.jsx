@@ -7,7 +7,7 @@ export default function LessonRenderer({ contenido }) {
   return (
     <div className="relative w-full flex justify-center items-center z-0">
       <CloudsBg />
-    <div className="flex flex-col space-y-6 items-center justify-center z-20">
+      <div className="flex flex-col space-y-6 items-center justify-center z-20">
         {contenido.map((item, index) => {
           if (item.tipo === "section") {
             return (
@@ -63,7 +63,7 @@ export default function LessonRenderer({ contenido }) {
           }
           return null;
         })}
-    </div>
+      </div>
     </div>
   );
 }
