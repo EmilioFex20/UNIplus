@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import { use } from "react";
 import { cursosData } from "@/app/data/cursosData";
-import LessonRenderer from "@/app/components/LessonRenderer";
+import LessonRenderer from "@/app/components/lessonRenderer";
 import CloudsBg from "@/app/components/CloudsBg";
 
 const Game = dynamic(() => import("@/app/juegos/evolucionDinero/Game"), {
