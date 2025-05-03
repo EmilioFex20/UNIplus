@@ -16,8 +16,8 @@ export default async function handler(req, res) {
 
     if (!user) return res.status(404).json({ message: "Usuario no encontrado" });
 
-    const { economia } = req.body;
-    user.economia = economia;
+    const { economiaState } = req.body;
+    user.economiaState = economiaState;
     await user.save();
 
     res.status(200).json({ message: "Progreso actualizado" });
