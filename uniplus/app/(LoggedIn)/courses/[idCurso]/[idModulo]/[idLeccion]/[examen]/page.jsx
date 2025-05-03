@@ -156,6 +156,7 @@ export default function ExamenPage({ params }) {
               Puntacion total {(resultado.puntuacion / preguntas.length) * 100}%
             </h3>
             <button className="bg-sky-500 w-full text-white text-xl font-bold py-5 px-5 rounded mt-4 cursor-pointer hover:bg-sky-600" onClick={() => window.location.reload()}>Reiniciar</button>
+            <button className="bg-sky-500 w-full text-white text-xl font-bold py-5 px-5 rounded mt-4 cursor-pointer hover:bg-sky-600" onClick={() => window.location.href = `/courses/${idCurso}/${idModulo + 1}`}>Avanzar al siguiente módulo</button>
           </div>
         )}
       </div>

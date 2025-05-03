@@ -4,6 +4,7 @@ import { Infografia } from "@/app/components/infografia";
 import CloudsBg from "./CloudsBg";
 import Image from "next/image";
 import Link from "next/link";
+import { cursosData } from "@/app/data/cursosData";
 
 export default function LessonRenderer({
   contenido,
@@ -11,6 +12,9 @@ export default function LessonRenderer({
   idModulo,
   idLeccion,
 }) {
+  const totalLecciones = cursosData[idCurso].modulos[idModulo].lecciones.length;
+  console.log("Lecciones totales:", totalLecciones);
+  const esUltimaLeccion = idLeccion === totalLecciones - 1;
   return (
     <div className="relative w-full flex justify-center items-center z-0">
       <CloudsBg />
@@ -88,7 +92,7 @@ export default function LessonRenderer({
             return (
               <div key={index}>
                 <Link
-                  className="bg-[#4a7298] text-white px-4 py-2 rounded-lg mt-2"
+                  className="bg-[#4a7298] text-white text-2xl px-6 py-3 rounded-lg mt-6 font-bold hover:bg-[#3a5a78]"
                   href={`/courses/${idCurso}/${idModulo}/${idLeccion}/${idModulo}`}
                 >
                   Iniciar Autoevaluacion
@@ -98,12 +102,14 @@ export default function LessonRenderer({
           }
           return null;
         })}
-        <Link
-          href={`/courses/${idCurso}/${idModulo}/${idLeccion + 1}`}
-          className="bg-[#4a7298] text-white text-2xl px-6 py-3 rounded-lg mt-6 font-bold hover:bg-[#3a5a78]"
-        >
-          Ir a la siguiente Leccion
-        </Link>
+        {!esUltimaLeccion && (
+          <Link
+            href={`/courses/${idCurso}/${idModulo}/${idLeccion + 1}`}
+            className="bg-[#4a7298] text-white text-2xl px-6 py-3 rounded-lg mt-6 font-bold hover:bg-[#3a5a78]"
+          >
+            Ir a la siguiente Lección
+          </Link>
+        )}
       </div>
     </div>
   );
