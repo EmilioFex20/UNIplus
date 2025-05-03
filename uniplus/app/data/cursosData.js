@@ -34,188 +34,204 @@ export const cursosData = [
         nombre: "¿Qué es el dinero y por qué importa?",
         descripcion:
           "Descubre el origen y la importancia del dinero en tu vida diaria.",
-          lecciones: [
-            {
-              nombre: "Lección 1: Definición y origen del dinero",
-              contenido: [
-                {
-                  tipo: "section",
-                  titulo: "¿Qué es el dinero?",
-                  texto: "El dinero es un sistema de valor aceptado por una comunidad..."
-                },
-                {
-                  tipo: "section",
-                  titulo: "Breve evolución histórica"
-                },
-                {
-                  tipo: "list",
-                  items: [
-                    "Trueque: intercambio directo de bienes.",
-                    "Dinero mercancía: bienes con valor intrínseco.",
-                    "Primeras monedas: acuñadas en Lidia.",
-                    "Papel moneda: China, siglo XII.",
-                    "Dinero moderno: fiduciario y digital."
-                  ]
-                },
-                {
-                  tipo: "video",
-                  src: "https://youtu.be/um-cPTsEr7Y?si=yNGtycb6K1j4u9KG"
-                }
-              ]
-            },
-            {
-              nombre: "Lección 2: Funciones del dinero",
-              contenido: [
-                {
-                  tipo: "section",
-                  titulo: "¿Cuáles son las funciones del dinero?",
-                  texto: "Sirve como medio de intercambio, unidad de cuenta..."
-                },
-                {
-                  tipo: "list",
-                  items: [
-                    "Medio de intercambio",
-                    "Unidad de cuenta",
-                    "Depósito de valor",
-                    "Estándar de pago diferido"
-                  ]
-                }
-              ]
-            },
-            {
-              nombre: "Lección 3: Características del “buen” dinero",
-              contenido: [
-                {
-                  tipo: "section",
-                  titulo: "¿Qué hace que el dinero sea confiable?",
-                  texto: "Debe ser duradero, divisible, portátil y aceptado por todos."
-                }
-              ]
-            }
-          ]
-          
+        lecciones: [
+          {
+            nombre: "Lección 1: Definición y origen del dinero",
+            contenido: [
+              {
+                tipo: "section",
+                titulo: "¿Qué es el dinero?",
+                texto:
+                  "El dinero es un sistema de valor aceptado por una comunidad para facilitar el intercambio de bienes y servicios, reduciendo los costos y las limitaciones del trueque (Understanding Money: Its Properties, Types, and Uses - Investopedia).",
+              },
+              {
+                tipo: "section",
+                titulo: "Breve evolución histórica",
+              },
+              {
+                tipo: "list",
+                items: [
+                  "Trueque: intercambio directo de bienes.",
+                  "Dinero mercancía: bienes con valor intrínseco.",
+                  "Primeras monedas: acuñadas en Lidia.",
+                  "Papel moneda: China, siglo XII.",
+                  "Dinero moderno: fiduciario y digital.",
+                ],
+              },
+              {
+                tipo: "video",
+                src: "hhttps://www.youtube.com/watch?v=nr98h2RH_8E",
+              },
+              {
+                tipo: "infografia",
+                src: "/infografias/EconomíaRecurso4Modulo1.png",
+                alt: "Infografía sobre la evolución del dinero",
+              },
+            ],
+          },
+          {
+            nombre: "Lección 2: Funciones del dinero",
+            contenido: [
+              {
+                tipo: "section",
+                titulo: "El dinero cumple cuatro funciones principales (Functions of Money - Overview, Medium of Exchange):",
+              },
+              {
+                tipo: "list",
+                items: [
+                  "Medio de intercambio: Permite comprar y vender sin trueque.",
+                  "Unidad de cuenta: Norma para medir y comparar valores.",
+                  "Depósito de valor: Conserva poder adquisitivo en el tiempo.",
+                  "Estándar de pago diferido: Permite acuerdos de pago futuro (préstamos, hipotecas).",
+                ],
+              },
+              {
+                tipo: "video",
+                src: "https://www.youtube.com/watch?v=bIkgITyu7gk",
+              },
+              {
+                tipo: "infografia",
+                src: "/infografias/EconomíaRecurso3Modulo1.png",
+                alt: "Infografía las funciones del dinero",
+              },
+            ],
+          },
+          {
+            nombre: "Lección 3: Características del “buen” dinero",
+            contenido: [
+              {
+                tipo: "section",
+                titulo: "¿Qué hace que el dinero sea confiable?",
+                texto:
+                  "Debe ser duradero, divisible, portátil y aceptado por todos.",
+              },
+            ],
+          },
+        ],
       },
       {
         nombre: "Oferta, demanda y cómo se forman los precios",
         descripcion:
           "Comprende cómo interactúan la oferta y la demanda en el mercado para formar precios.",
-          lecciones: [
-            {
-              nombre: "Lección 1: Definición y origen del dinero",
-              contenido: [
-                {
-                  tipo: "section",
-                  titulo: "¿Qué es el dinero?",
-                  texto: "El dinero es un sistema de valor aceptado por una comunidad..."
-                },
-                {
-                  tipo: "section",
-                  titulo: "Breve evolución histórica"
-                },
-                {
-                  tipo: "list",
-                  items: [
-                    "Trueque: intercambio directo de bienes.",
-                    "Dinero mercancía: bienes con valor intrínseco.",
-                    "Primeras monedas: acuñadas en Lidia.",
-                    "Papel moneda: China, siglo XII.",
-                    "Dinero moderno: fiduciario y digital."
-                  ]
-                }
-              ]
-            },
-            {
-              nombre: "Lección 2: Funciones del dinero",
-              contenido: [
-                {
-                  tipo: "section",
-                  titulo: "¿Cuáles son las funciones del dinero?",
-                  texto: "Sirve como medio de intercambio, unidad de cuenta..."
-                },
-                {
-                  tipo: "list",
-                  items: [
-                    "Medio de intercambio",
-                    "Unidad de cuenta",
-                    "Depósito de valor",
-                    "Estándar de pago diferido"
-                  ]
-                }
-              ]
-            },
-            {
-              nombre: "Lección 3: Características del “buen” dinero",
-              contenido: [
-                {
-                  tipo: "section",
-                  titulo: "¿Qué hace que el dinero sea confiable?",
-                  texto: "Debe ser duradero, divisible, portátil y aceptado por todos."
-                }
-              ]
-            }
-          ]
-          
+        lecciones: [
+          {
+            nombre: "Lección 1: Definición y origen del dinero",
+            contenido: [
+              {
+                tipo: "section",
+                titulo: "¿Qué es el dinero?",
+                texto:
+                  "El dinero es un sistema de valor aceptado por una comunidad...",
+              },
+              {
+                tipo: "section",
+                titulo: "Breve evolución histórica",
+              },
+              {
+                tipo: "list",
+                items: [
+                  "Trueque: intercambio directo de bienes.",
+                  "Dinero mercancía: bienes con valor intrínseco.",
+                  "Primeras monedas: acuñadas en Lidia.",
+                  "Papel moneda: China, siglo XII.",
+                  "Dinero moderno: fiduciario y digital.",
+                ],
+              },
+            ],
+          },
+          {
+            nombre: "Lección 2: Funciones del dinero",
+            contenido: [
+              {
+                tipo: "section",
+                titulo: "¿Cuáles son las funciones del dinero?",
+                texto: "Sirve como medio de intercambio, unidad de cuenta...",
+              },
+              {
+                tipo: "list",
+                items: [
+                  "Medio de intercambio",
+                  "Unidad de cuenta",
+                  "Depósito de valor",
+                  "Estándar de pago diferido",
+                ],
+              },
+            ],
+          },
+          {
+            nombre: "Lección 3: Características del “buen” dinero",
+            contenido: [
+              {
+                tipo: "section",
+                titulo: "¿Qué hace que el dinero sea confiable?",
+                texto:
+                  "Debe ser duradero, divisible, portátil y aceptado por todos.",
+              },
+            ],
+          },
+        ],
       },
       {
         nombre: "Introducción a la macroeconomía",
         descripcion:
           "Explora los conceptos clave de la macroeconomía y su impacto en tus finanzas.",
-          lecciones: [
-            {
-              nombre: "Lección 1: Definición y origen del dinero",
-              contenido: [
-                {
-                  tipo: "section",
-                  titulo: "¿Qué es el dinero?",
-                  texto: "El dinero es un sistema de valor aceptado por una comunidad..."
-                },
-                {
-                  tipo: "section",
-                  titulo: "Breve evolución histórica"
-                },
-                {
-                  tipo: "list",
-                  items: [
-                    "Trueque: intercambio directo de bienes.",
-                    "Dinero mercancía: bienes con valor intrínseco.",
-                    "Primeras monedas: acuñadas en Lidia.",
-                    "Papel moneda: China, siglo XII.",
-                    "Dinero moderno: fiduciario y digital."
-                  ]
-                }
-              ]
-            },
-            {
-              nombre: "Lección 2: Funciones del dinero",
-              contenido: [
-                {
-                  tipo: "section",
-                  titulo: "¿Cuáles son las funciones del dinero?",
-                  texto: "Sirve como medio de intercambio, unidad de cuenta..."
-                },
-                {
-                  tipo: "list",
-                  items: [
-                    "Medio de intercambio",
-                    "Unidad de cuenta",
-                    "Depósito de valor",
-                    "Estándar de pago diferido"
-                  ]
-                }
-              ]
-            },
-            {
-              nombre: "Lección 3: Características del “buen” dinero",
-              contenido: [
-                {
-                  tipo: "section",
-                  titulo: "¿Qué hace que el dinero sea confiable?",
-                  texto: "Debe ser duradero, divisible, portátil y aceptado por todos."
-                }
-              ]
-            }
-          ]
-          
+        lecciones: [
+          {
+            nombre: "Lección 1: Definición y origen del dinero",
+            contenido: [
+              {
+                tipo: "section",
+                titulo: "¿Qué es el dinero?",
+                texto:
+                  "El dinero es un sistema de valor aceptado por una comunidad...",
+              },
+              {
+                tipo: "section",
+                titulo: "Breve evolución histórica",
+              },
+              {
+                tipo: "list",
+                items: [
+                  "Trueque: intercambio directo de bienes.",
+                  "Dinero mercancía: bienes con valor intrínseco.",
+                  "Primeras monedas: acuñadas en Lidia.",
+                  "Papel moneda: China, siglo XII.",
+                  "Dinero moderno: fiduciario y digital.",
+                ],
+              },
+            ],
+          },
+          {
+            nombre: "Lección 2: Funciones del dinero",
+            contenido: [
+              {
+                tipo: "section",
+                titulo: "¿Cuáles son las funciones del dinero?",
+                texto: "Sirve como medio de intercambio, unidad de cuenta...",
+              },
+              {
+                tipo: "list",
+                items: [
+                  "Medio de intercambio",
+                  "Unidad de cuenta",
+                  "Depósito de valor",
+                  "Estándar de pago diferido",
+                ],
+              },
+            ],
+          },
+          {
+            nombre: "Lección 3: Características del “buen” dinero",
+            contenido: [
+              {
+                tipo: "section",
+                titulo: "¿Qué hace que el dinero sea confiable?",
+                texto:
+                  "Debe ser duradero, divisible, portátil y aceptado por todos.",
+              },
+            ],
+          },
+        ],
       },
     ],
   },

@@ -20,7 +20,7 @@ export function LessonInfoCard({
           alt="Iniciar Curso"
           className="relative rounded-full bg-sky-200 p-3 text-sm text-black hover:bg-sky-600 cursor-pointer"
         >
-          Iniciar Curso
+          Iniciar Lección
         </button>
       </div>
     </div>

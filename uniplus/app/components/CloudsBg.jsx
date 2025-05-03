@@ -1,7 +1,7 @@
 export default function CloudsBg() {
     const nubes = Array.from({ length: 55 }, (_, i) => {
         const size = `${Math.random() * 400 + 50}px`; 
-        const top = `${Math.random() * 90}vh`; 
+        const top = `${Math.random() * 100}%`; 
         const delay = `-${Math.random() * 30}s`; 
         const duration = `${30 + Math.random() * 40}s`; 
         const opacity = `${0.3 + Math.random() * 0.5}`;
