@@ -14,7 +14,7 @@ export default function ModulePage({ params }) {
         Bienvenido al curso de {curso.nombre} - {modulo.nombre}
       </h1>
       <p className="text-black text-base mb-4 px-20">Descripción del curso</p>
-      <div className="flex gap-5 px-20 py-5 overflow-x-auto">
+      <div className="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 gap-5 px-20 py-5">
         {modulo.lecciones.map((leccion, index) => (
           <LessonInfoCard
             key={index}
