@@ -126,7 +126,7 @@ export const examenData = [
                 ],
                 respuestaCorrecta: "1690",
                 explicacion:
-                  "“Bills of credit” de Massachusetts para financiar la guerra.",
+                  "\“Bills of credit\” de Massachusetts para financiar la guerra.",
               },
             ],
           },
