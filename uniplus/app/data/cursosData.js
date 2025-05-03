@@ -157,26 +157,31 @@ export const cursosData = [
           "Comprende cómo interactúan la oferta y la demanda en el mercado para formar precios.",
         lecciones: [
           {
-            nombre: "Lección 1: Definición y origen del dinero",
+            nombre: "Lección 1: ¿Qué es la demanda?",
             contenido: [
               {
                 tipo: "section",
-                titulo: "¿Qué es el dinero?",
+                titulo: "¿Qué es la demanda?",
                 texto:
-                  "El dinero es un sistema de valor aceptado por una comunidad...",
+                  "La demanda es la cantidad de un bien o servicio que los consumidores están dispuestos y pueden comprar a distintos precios, en un período determinado. A precios más bajos, la demanda tiende a aumentar; a precios más altos, a disminuir (How It Works Plus Economic Determinants and the Demand Curve, What Is the Law of Demand in Economics, and How Does It Work?).",
               },
               {
                 tipo: "section",
-                titulo: "Breve evolución histórica",
+                titulo: "Ley de la demanda",
+                text: "\“A mayor precio, menor cantidad demandada; a menor precio, mayor cantidad demandada.\"Se basa en la utilidad marginal decreciente: cada unidad adicional aporta menos satisfacción, por lo que los consumidores compran menos si el precio sube (What Is the Law of Demand in Economics, and How Does It Work?).",
+              },
+              {
+                tipo: "section",
+                titulo: "Determinantes de la demanda (aparte del precio)",
               },
               {
                 tipo: "list",
                 items: [
-                  "Trueque: intercambio directo de bienes.",
-                  "Dinero mercancía: bienes con valor intrínseco.",
-                  "Primeras monedas: acuñadas en Lidia.",
-                  "Papel moneda: China, siglo XII.",
-                  "Dinero moderno: fiduciario y digital.",
+                  "Ingreso del consumidor",
+                  "Gustos y preferencias",
+                  "Precios de bienes sustitutivos y complementarios",
+                  "Expectativas de precios futuros",
+                  "Tamaño y composición de la población",
                 ],
               },
             ],
