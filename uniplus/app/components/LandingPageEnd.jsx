@@ -7,7 +7,7 @@ export default function LandingPageEnd(){
                 <p className="text-4xl text-white mb-6">
                     ¿Listo para empezar a aprender?
                 </p>
-                <FullButton href="/login" text="Iniciar Sesión"/>
+                <FullButton href="/inicio-sesion" text="Iniciar Sesión"/>
             </div>
         </>
     );

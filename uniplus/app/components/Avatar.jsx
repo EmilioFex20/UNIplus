@@ -20,7 +20,7 @@ export default function Avatar() {
     }
   }
   function handleProfileClick() {
-    router.push("/contacto");
+    router.push("/perfil");
   }
   function handleCoursesClick() {
     router.push("/courses");
@@ -54,21 +54,21 @@ export default function Avatar() {
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2 w-full"
                 onClick={handleProfileClick}
               >
-                <li>👤 View Profile</li>
+                <li>👤 Ir al Perfil</li>
               </button>
               <hr className="my-2 text-gray-400" />
               <button className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2 w-full" onClick={handleProfileClick}>
-                <li>🏅 Badges</li>
+                <li>🏅 Medallas</li>
               </button>
               <button className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2 w-full" onClick={handleCoursesClick}>
-                <li>🏠 Courses</li>
+                <li>🏠 Cursos</li>
               </button>
               <hr className="my-2 text-gray-400" />
               <button
                 onClick={onClickLogout}
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2 w-full"
               >
-                <li>🚪 Log Out</li>
+                <li>🚪 Cerrar Sesión</li>
               </button>
             </ul>
           </div>
