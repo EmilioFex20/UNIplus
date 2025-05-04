@@ -10,6 +10,12 @@ export default function RegisterPage() {
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData.entries());
 
+    const email = data.email;
+    if (!email.includes('@') || !email.endsWith('.com')) {
+      alert("Por favor, ingresa un correo electrónico válido");
+      return;
+    }
+
     const response = await fetch("/api/register", {
       method: "POST",
       headers: {
