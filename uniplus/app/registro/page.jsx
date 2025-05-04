@@ -33,44 +33,41 @@ export default function RegisterPage() {
 
   return (
     <div className={`${styles.fondo} flex justify-center items-center h-screen`}>
-      <div className="bg-white/10 backdrop-blur-md p-12 rounded-lg shadow-lg w-full max-w-lg flex flex-col items-center gap-4">
-      <h1 className="text-black text-3xl">Registrate</h1>
-      <div className="flex gap-1"></div>
-      <form className="flex flex-col gap-4 mt-4" onSubmit={onSubmit}>
-        <div className="flex gap-4">
-          {" "}
-          <input
-            type="text"
-            name="name"
-            placeholder="Nombre"
-            className="p-2 border border-gray-300 rounded text-black"
-          />
-          <input
-            type="text"
-            name="lastName"
-            placeholder="Apellido"
-            className="p-2 border border-gray-300 rounded text-black"
-          />
-        </div>
+      <div className="bg-white/20 backdrop-blur-xl p-12 rounded-2xl shadow-2xl w-full max-w-lg flex flex-col items-center gap-6">
+        <h1 className="text-white text-4xl font-bold">Regístrate</h1>
+        <form className="flex flex-col gap-4 w-full" onSubmit={onSubmit}>
+          <div className="flex gap-4">
+            <input
+              type="text"
+              name="name"
+              placeholder="Nombre"
+              className="p-3 border border-gray-300 rounded-lg bg-white/80 placeholder-gray-600 text-black focus:outline-none focus:ring-2 focus:ring-blue-300"
+            />
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Apellido"
+              className="p-3 border border-gray-300 rounded-lg bg-white/80 placeholder-gray-600 text-black focus:outline-none focus:ring-2 focus:ring-blue-300"
+            />
+          </div>
 
-        <input
-          type="text"
-          name="email"
-          placeholder="Correo electrónico"
-          className="p-2 border border-gray-300 rounded text-black"
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Contraseña"
-          className="p-2 border border-gray-300 rounded text-black"
-        />
-        <button type="submit" className="p-2 bg-blue-400 text-white rounded hover:bg-blue-500 active:bg-blue-600 transition-colors duration-200">
-          Registrarse
-        </button>
-      </form>
+          <input
+            type="text"
+            name="email"
+            placeholder="Correo electrónico"
+            className="p-3 border border-gray-300 rounded-lg bg-white/80 placeholder-gray-600 text-black focus:outline-none focus:ring-2 focus:ring-blue-300"
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Contraseña"
+            className="p-3 border border-gray-300 rounded-lg bg-white/80 placeholder-gray-600 text-black focus:outline-none focus:ring-2 focus:ring-blue-300"
+          />
+          <button type="submit" className="p-3 bg-blue-300 text-blue-900 font-medium rounded-lg hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100 transition duration-200">
+            Registrarse
+          </button>
+        </form>
+      </div>
     </div>
-    </div>
-    
   );
 }
