@@ -3,12 +3,31 @@
 import { useEffect, useRef, useState } from "react";
 import * as Phaser from "phaser";
 
+const calcularDemanda = (precio) => {
+  const demandaBase = 10;
+  const precioBase = 5;
+  const sensibilidad = 1.5;
+
+  return Math.max(0, Math.round(demandaBase - sensibilidad * (precio - precioBase)));
+};
+
+const calcularVentasYGanancias = ({ precio, oferta, costoUnitario }) => {
+  const demanda = calcularDemanda(precio);
+  const ventas = Math.min(oferta, demanda);
+  const ingreso = ventas * precio;
+  const costoTotal = oferta * costoUnitario;
+  const ganancia = ingreso - costoTotal;
+
+  return { demanda, ventas, ingreso, ganancia };
+};
+
 export default function CoffeeGame() {
   const gameRef = useRef(null);
   const containerRef = useRef(null);
 
   const [dia, setDia] = useState(1);
   const [oferta, setOferta] = useState(10);
+  const [costo, setCosto] = useState(2);
   const [precio, setPrecio] = useState(5);
   const [dinero, setDinero] = useState(0);
   const [ventas, setVentas] = useState(0);
@@ -18,7 +37,6 @@ export default function CoffeeGame() {
   const ventasRef = useRef(ventas);
   const juegoActivoRef = useRef(juegoActivo);
   const diaRef = useRef(dia);
-  const demandaDiaria = [5, 8, 12, 4, 15, 10];
 
   useEffect(() => {
     ofertaRef.current = oferta;
@@ -66,12 +84,20 @@ export default function CoffeeGame() {
         this.pauseX = 550;
         this.pauseTime = 2000;
         this.walkSpeed = this.reactBridge.velocidad;
-
+        this.hasPaused = false;
         this.isPaused = false;
         this.comprador.anims.play("comprador-camina", true);
+
+        this.floatText = this.add.text(0, 900, '', { fontSize: '150px', color: '#43ee43', fontStyle: 'bold' }).setOrigin(0.5);
+        this.floatText.setVisible(false);
+
+        this.dayCompleteText = this.add.text(768, 45, '', { fontSize: '100px', color: '#ffffff', fontStyle: 'bold' }).setOrigin(0.5);
+        this.dayCompleteText.setVisible(false);
       }
 
       update() {
+        console.log(diaRef.current);
+        console.log(ofertaRef.current);
         const {
           getJuegoActivo,
           getOferta,
@@ -80,21 +106,39 @@ export default function CoffeeGame() {
           setJuegoActivo,
         } = this.reactBridge;
 
-        if (!getJuegoActivo()) {
+        if(diaRef.current==6){
+          this.dayCompleteText.setText('Juego Terminado');
+          this.dayCompleteText.setVisible(true);
+
+        };
+
+        if (!getJuegoActivo()||diaRef.current==6) {
           this.comprador.setFrame(0);
           return;
+        }
+        if (ofertaRef.current == 0) {
+          setDia((prev) => prev + 1);
+          this.comprador.anims.stop();
+          setJuegoActivo(false);
+
+          this.dayCompleteText.setText('¡Día Completado!');
+          this.dayCompleteText.setVisible(true);
+
+        this.time.delayedCall(2000, () => {
+        this.dayCompleteText.setVisible(false);
+        return;
+        });
         }
 
         if (this.isPaused) return;
 
-        // Avanza caminando
+        this.comprador.anims.play("comprador-camina", true);
         this.comprador.x += this.walkSpeed;
 
-        // Lógica de pausa a mitad
-        if (!this.isPaused && this.comprador.x >= this.pauseX) {
+        if (!this.hasPaused && this.comprador.x >= this.pauseX) {
           this.isPaused = true;
+          this.hasPaused = true;
           this.comprador.anims.stop();
-          console.log("comprador para");
           this.comprador.setFrame(0);
 
           const {
@@ -113,28 +157,45 @@ export default function CoffeeGame() {
           const precio = getPrecio();
 
           if (oferta > 0 && ventas < demanda) {
-            console.log("Se registra venta");
             setVentas(ventas + 1);
             setOferta(oferta - 1);
             setDinero((prev) => prev + precio);
           }
 
+          this.floatText.setText('+' + precio);
+          this.floatText.setPosition(1070, 400);
+          this.floatText.setVisible(true);
+    
+          this.time.delayedCall(1000, () => {
+            this.floatText.setVisible(false);
+          });
+
+
           this.time.delayedCall(this.pauseTime, () => {
-            console.log("comprador reanuda");
             this.isPaused = false;
             this.comprador.anims.play("comprador-camina", true);
           });
         }
 
         if (this.comprador.x > 1600) {
-          console.log("comprador llega al final");
           this.comprador.x = -100;
-
+          this.hasPaused = false;
+          const oferta = getOferta();
+          const ventas = getVentas();
+          const demanda = getDemanda();
           if (oferta <= 0 || ventas >= demanda) {
-            console.log("se quedo sin oferta/demanda y para");
+            setDia((prev) => prev + 1);
+
             this.comprador.anims.stop();
             setJuegoActivo(false);
-          }
+
+            this.dayCompleteText.setText('¡Día Completado!');
+            this.dayCompleteText.setVisible(true);
+
+          this.time.delayedCall(2000, () => {
+          this.dayCompleteText.setVisible(false);
+          });
+        }
         }
       }
     }
@@ -158,11 +219,11 @@ export default function CoffeeGame() {
         default: "arcade",
       },
       scene: new Scene({
-        velocidad: 2,
+        velocidad: 4,
         getOferta: () => ofertaRef.current,
         getPrecio: () => precioRef.current,
         getVentas: () => ventasRef.current,
-        getDemanda: () => demandaDiaria[diaRef.current - 1] || 0,
+        getDemanda: () => calcularDemanda(precioRef.current),
         getJuegoActivo: () => juegoActivoRef.current,
         setVentas,
         setOferta,
@@ -182,21 +243,25 @@ export default function CoffeeGame() {
   }, []);
 
   const iniciarNuevoDia = () => {
-    setDia((prev) => prev + 1);
+    const {ganancia } = calcularVentasYGanancias({
+      precio,
+      oferta,
+      costoUnitario: costo,
+    });
+    
     setVentas(0);
-    setOferta(5); // resetear oferta por día
-    setDinero((prev) => prev - 10); // costo de operar ese día
+    setDinero((prev) => prev + ganancia);
     setJuegoActivo(true);
   };
 
   return (
     <div className="flex">
-      <div className="w-1/3 p-4 bg-gray-100">
-        <h1 className="text-xl font-bold mb-4">Panel de Control</h1>
+      <div className="w-1/3 p-4 bg-[#7e3200]/80 text-xl rounded-l-xl">
+        <h1 className="font-bold mb-4">Panel de Control</h1>
         <p>Día actual: {dia}</p>
-        <p>Demanda: {demandaDiaria[dia - 1] || 0}</p>
-        <p>Oferta restante: {oferta}</p>
-        <p>Precio por café: ${precio}</p>
+        <p>Demanda estimada: {calcularDemanda(precio)}</p>
+        <p>Cafés restantes: {oferta}</p>
+        <p>Costo de hacer 1 café: ${costo}</p>
         <p>Ventas: {ventas}</p>
         <p>Dinero: ${dinero}</p>
 
@@ -224,12 +289,12 @@ export default function CoffeeGame() {
           onClick={iniciarNuevoDia}
           className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
         >
-          Siguiente Día
+          {dia==1?"Comenzar":"Siguiente Día"}
         </button>
       </div>
 
       <div id="parent" className="w-2/3">
-        <div ref={containerRef} />
+        <div ref={containerRef} className="rounded-xl overflow-hidden "/>
       </div>
     </div>
   );
