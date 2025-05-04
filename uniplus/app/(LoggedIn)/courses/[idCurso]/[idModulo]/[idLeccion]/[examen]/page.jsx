@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { use } from "react";
 import { examenData } from "@/app/data/examenData";
+import { cursosData } from "@/app/data/cursosData";
 
 export default function ExamenPage({ params }) {
   const resolvedParams = use(params);
@@ -87,6 +88,60 @@ export default function ExamenPage({ params }) {
     setSeleccionado(false);
   };
 
+  const totalModulos = cursosData[idCurso].modulos.length;
+  const esUltimoModulo = idModulo === totalModulos - 1;
+
+  const moduleKeys = [
+    "desarrolloState",
+    "economiaState",
+    "tecnologiaState",
+    "creatividadState",
+    "saludState",
+    "finanzasState",
+  ];
+  const moduleKey = moduleKeys[idCurso];
+
+  const handleClick = async () => {
+    const moduleUrl = `/courses/${idCurso}/${idModulo + 1}`;
+    try {
+      const response = await fetch("/api/updateProgress", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ moduleKey, moduleUrl }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Error al registrar el progreso del módulo");
+      }
+
+      window.location.href = moduleUrl;
+    } catch (error) {
+      console.error("Error al registrar el progreso del módulo:", error);
+    }
+  };
+  const handleFinish = async () => {
+    const moduleUrl = `/courses`;
+    try {
+      const response = await fetch("/api/updateProgress", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ moduleKey, moduleUrl }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Error al registrar el progreso del módulo");
+      }
+
+      window.location.href = moduleUrl;
+    } catch (error) {
+      console.error("Error al registrar el progreso del módulo:", error);
+    }
+  };
+
   return (
     <div className="w-full h-full items-center justify-center">
       <h1 className="text-black font-bold text-2xl mb-4 px-20">
@@ -150,13 +205,52 @@ export default function ExamenPage({ params }) {
             )}
           </div>
         ) : (
-          <div className="mx-20 text-2xl justify-center items-center text-center">
-            <h3 className="text-bold">Resultados</h3>
-            <h3>
+          <div className="mx-20 justify-center text-start">
+            <h3 className="font-bold text-4xl">Resultados</h3>
+            <h3 className="text-2xl mt-5">
               Puntacion total {(resultado.puntuacion / preguntas.length) * 100}%
             </h3>
-            <button className="bg-sky-500 w-full text-white text-xl font-bold py-5 px-5 rounded mt-4 cursor-pointer hover:bg-sky-600" onClick={() => window.location.reload()}>Reiniciar</button>
-            <button className="bg-sky-500 w-full text-white text-xl font-bold py-5 px-5 rounded mt-4 cursor-pointer hover:bg-sky-600" onClick={() => window.location.href = `/courses/${idCurso}/${idModulo + 1}`}>Avanzar al siguiente módulo</button>
+            <div className="text-start text-xl mt-5">
+              <p>
+                Preguntas totales: <span>{preguntas.length}</span>
+              </p>
+              <p>
+                Puntuación Total: <span>{resultado.puntuacion}</span>
+              </p>
+              <p>
+                Respuestas Correctas: <span>{resultado.respuestasCorrectas}</span>
+              </p>
+              <p>
+                Respuestas Incorrectas: <span>{resultado.respuestasIncorrectas}</span>
+              </p>
+            </div>
+
+            <button
+              className="bg-sky-500 w-full text-white text-xl font-bold py-5 px-5 rounded mt-4 cursor-pointer hover:bg-sky-600"
+              onClick={() => window.location.reload()}
+            >
+              Reiniciar
+            </button>
+            {!esUltimoModulo ? (
+              <button
+                className="bg-sky-500 w-full text-white text-xl font-bold py-5 px-5 rounded mt-4 cursor-pointer hover:bg-sky-600"
+                onClick={handleClick}
+              >
+                Avanzar al siguiente módulo
+              </button>
+            ) : (
+              <div className="mt-10">
+                <h1 className="text-4xl font-bold text-white">
+                  ¡Felicidades! Terminaste el Curso de {curso.nombre}{" "}
+                </h1>
+                <button
+                className="bg-sky-500 w-full text-white text-xl font-bold py-5 px-5 rounded mt-10 cursor-pointer hover:bg-sky-600"
+                onClick={handleFinish}
+              >
+                Explorar más Cursos
+              </button>
+              </div>
+            )}
           </div>
         )}
       </div>

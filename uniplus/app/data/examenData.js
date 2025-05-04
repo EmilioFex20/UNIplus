@@ -177,7 +177,7 @@ export const examenData = [
                 respuestaCorrecta:
                   "Hacia la izquierda",
                 explicacion:
-                  " Si fuera ilimitado, su valor caería casi a cero.",
+                  "Si fuera ilimitado, su valor caería casi a cero.",
               },
               {
                 id: 4,
@@ -215,7 +215,6 @@ export const examenData = [
                   "Solo afecta a la demanda",
                 ],
                 respuestaCorrecta: "Hacia la derecha",
-                  "La función de unidad de cuenta permite medir y comparar el valor de diferentes bienes y servicios, facilitando la toma de decisiones económicas.",
               },
               {
                 id: 7,
@@ -227,7 +226,6 @@ export const examenData = [
                   "Precio = Costo",
                 ],
                 respuestaCorrecta: "Oferta = Demanda",
-                  "La función de unidad de cuenta permite medir y comparar el valor de diferentes bienes y servicios, facilitando la toma de decisiones económicas.",
               },
               {
                 id: 8,
@@ -238,8 +236,7 @@ export const examenData = [
                   "No cambia",
                   "Desplaza demanda",
                 ],
-                respuestaCorrecta: "Demanda",
-                  "La función de unidad de cuenta permite medir y comparar el valor de diferentes bienes y servicios, facilitando la toma de decisiones económicas.",
+                respuestaCorrecta: "Desplaza demanda",
               },
               {
                 id: 9,
@@ -251,7 +248,6 @@ export const examenData = [
                   "Afecta a la demanda",
                 ],
                 respuestaCorrecta: "Hacia la izquierda",
-                  "La función de unidad de cuenta permite medir y comparar el valor de diferentes bienes y servicios, facilitando la toma de decisiones económicas.",
               },
               {
                 id: 10,
@@ -263,7 +259,6 @@ export const examenData = [
                   "Igual al costo marginal",
                 ],
                 respuestaCorrecta: "Por debajo del equilibrio",
-                  "La función de unidad de cuenta permite medir y comparar el valor de diferentes bienes y servicios, facilitando la toma de decisiones económicas.",
               },
             ],
           },

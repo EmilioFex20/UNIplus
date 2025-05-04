@@ -22,7 +22,7 @@ export default function Roadmap() {
         style={{ backgroundImage: "url('/caminoRoadmap.svg')" }}
       >
       {[0, 1, 2, 3, 4, 5].map((id) => (
-        <>
+        <div key={id}>
           <CourseCard
             key={id}
             idCurso={id}
@@ -30,7 +30,7 @@ export default function Roadmap() {
             setIdCursoActivo={setIdCursoActivo}
             moduleKey={moduleKeys[id]} 
           />
-        </>
+        </div>
       ))}
 
       </div>

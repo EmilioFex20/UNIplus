@@ -20,6 +20,15 @@ export default function LessonPage({ params }) {
   const modulo = curso.modulos[idModulo];
   const leccion = modulo.lecciones[idLeccion];
 
+    const moduleKeys = [
+      "desarrolloState",
+      "economiaState",
+      "tecnologiaState",
+      "creatividadState",
+      "saludState",
+      "finanzasState",
+    ];
+
   return (
     <div className="max-w-full min-h-full bg-white px-20">
       <h1 className="text-[#4a7298] font-bold text-4xl mb-4">
@@ -32,6 +41,7 @@ export default function LessonPage({ params }) {
           idCurso={idCurso}
           idModulo={idModulo}
           idLeccion={idLeccion}
+          moduleKey={moduleKeys[idCurso]}
         />
       </div>
 

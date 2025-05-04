@@ -10,16 +10,49 @@ export const cursosData = [
         nombre: "Autoconocimiento y autoestima",
         descripcion:
           "Aprende a identificar tus fortalezas, valores y emociones para desarrollar una autoestima saludable.",
+        lecciones: [
+          {
+            nombre: "Lecciones Por definir",
+            contenido: [
+              {
+                tipo: "section",
+                titulo: "Contenido por definir",
+              },
+            ],
+          },
+        ],
       },
       {
         nombre: "Gestión del tiempo",
         descripcion:
           "Organiza tu día a día con técnicas de productividad que te ayudarán a lograr tus objetivos personales.",
+          lecciones: [
+            {
+              nombre: "Lecciones Por definir",
+              contenido: [
+                {
+                  tipo: "section",
+                  titulo: "Contenido por definir",
+                },
+              ],
+            },
+          ],
       },
       {
         nombre: "Establecimiento de metas",
         descripcion:
           "Define y alcanza metas significativas con métodos prácticos y motivadores.",
+          lecciones: [
+            {
+              nombre: "Lecciones Por definir",
+              contenido: [
+                {
+                  tipo: "section",
+                  titulo: "Contenido por definir",
+                },
+              ],
+            },
+          ],
       },
     ],
   },
@@ -74,7 +107,8 @@ export const cursosData = [
             contenido: [
               {
                 tipo: "section",
-                titulo: "El dinero cumple cuatro funciones principales (Functions of Money - Overview, Medium of Exchange):",
+                titulo:
+                  "El dinero cumple cuatro funciones principales (Functions of Money - Overview, Medium of Exchange):",
               },
               {
                 tipo: "list",
@@ -101,7 +135,8 @@ export const cursosData = [
             contenido: [
               {
                 tipo: "section",
-                titulo: "Para funcionar bien, el dinero debe tener estas seis cualidades (Functions of Money - The Economic Lowdown Podcast Series):",
+                titulo:
+                  "Para funcionar bien, el dinero debe tener estas seis cualidades (Functions of Money - The Economic Lowdown Podcast Series):",
               },
               {
                 tipo: "list",
@@ -123,7 +158,7 @@ export const cursosData = [
                 tipo: "gif",
                 src: "/gifs/EconomíaRecurso5Modulo1(1).gif",
                 alt: "Características del “buen” dinero",
-              }
+              },
             ],
           },
           {
@@ -132,7 +167,8 @@ export const cursosData = [
               {
                 tipo: "section",
                 titulo: "Evolución del dinero",
-                texto: "En este juego, aprenderás sobre la evolución del dinero a través de diferentes eras y cómo ha cambiado su forma y función.",
+                texto:
+                  "En este juego, aprenderás sobre la evolución del dinero a través de diferentes eras y cómo ha cambiado su forma y función.",
               },
             ],
           },
@@ -142,11 +178,12 @@ export const cursosData = [
               {
                 tipo: "section",
                 titulo: "Ejercicio práctico",
-                texto: "Reflexiona sobre cómo el dinero ha influido en tu vida y cómo lo usas en tu día a día. Y no te preocupes, ¡no es un examen!",
+                texto:
+                  "Reflexiona sobre cómo el dinero ha influido en tu vida y cómo lo usas en tu día a día. Y no te preocupes, ¡no es un examen!",
               },
               {
-                tipo: "examen"
-              }
+                tipo: "examen",
+              },
             ],
           },
         ],
@@ -168,7 +205,7 @@ export const cursosData = [
               {
                 tipo: "section",
                 titulo: "Ley de la demanda",
-                text: "\“A mayor precio, menor cantidad demandada; a menor precio, mayor cantidad demandada.\"Se basa en la utilidad marginal decreciente: cada unidad adicional aporta menos satisfacción, por lo que los consumidores compran menos si el precio sube (What Is the Law of Demand in Economics, and How Does It Work?).",
+                text: '“A mayor precio, menor cantidad demandada; a menor precio, mayor cantidad demandada."Se basa en la utilidad marginal decreciente: cada unidad adicional aporta menos satisfacción, por lo que los consumidores compran menos si el precio sube (What Is the Law of Demand in Economics, and How Does It Work?).',
               },
               {
                 tipo: "section",
@@ -196,16 +233,18 @@ export const cursosData = [
               {
                 tipo: "section",
                 titulo: "Definición",
-                texto: "La oferta es la cantidad de un bien o servicio que los productores están dispuestos y pueden vender a distintos precios, en un período determinado. A precios más altos, la oferta tiende a aumentar; a precios más bajos, a disminuir (Law of Supply and Demand in Economics: How It Works).",
+                texto:
+                  "La oferta es la cantidad de un bien o servicio que los productores están dispuestos y pueden vender a distintos precios, en un período determinado. A precios más altos, la oferta tiende a aumentar; a precios más bajos, a disminuir (Law of Supply and Demand in Economics: How It Works).",
               },
               {
                 tipo: "section",
                 titulo: "Ley de la oferta",
-                texto: "\“A mayor precio, mayor cantidad ofrecida; a menor precio, menor cantidad ofrecida.\”Los productores maximizan beneficios, por eso ofrecen más cuando el precio sube (Law of Supply Explained, With the Curve, Types, and Examples).",
+                texto:
+                  "“A mayor precio, mayor cantidad ofrecida; a menor precio, menor cantidad ofrecida.”Los productores maximizan beneficios, por eso ofrecen más cuando el precio sube (Law of Supply Explained, With the Curve, Types, and Examples).",
               },
               {
                 tipo: "list",
-                items:[
+                items: [
                   "Costos de producción (materias primas, salarios)",
                   "Tecnología y productividad",
                   "Impuestos y subsidios",
@@ -271,7 +310,7 @@ export const cursosData = [
                   "Izquierda (disminuye): sube precio y baja cantidad.",
                 ],
               },
-            ]
+            ],
           },
           {
             nombre: "Ejercicio práctico",
@@ -279,11 +318,12 @@ export const cursosData = [
               {
                 tipo: "section",
                 titulo: "Ejercicio práctico",
-                texto: "Reflexiona sobre cómo el dinero ha influido en tu vida y cómo lo usas en tu día a día. Y no te preocupes, ¡no es un examen!",
+                texto:
+                  "Reflexiona sobre cómo el dinero ha influido en tu vida y cómo lo usas en tu día a día. Y no te preocupes, ¡no es un examen!",
               },
               {
-                tipo: "examen"
-              }
+                tipo: "examen",
+              },
             ],
           },
         ],
@@ -329,11 +369,12 @@ export const cursosData = [
               {
                 tipo: "section",
                 titulo: "¿Qué es el PIB?",
-                texto: "Es el valor monetario de todos los bienes y servicios finales producidos dentro de un país en un período determinado; sirve como “termómetro” de la salud económica (Gross Domestic Product (GDP) Formula and How to Use It, What Is GDP and Why Is It So Important to Economists and Investors?).",
+                texto:
+                  "Es el valor monetario de todos los bienes y servicios finales producidos dentro de un país en un período determinado; sirve como “termómetro” de la salud económica (Gross Domestic Product (GDP) Formula and How to Use It, What Is GDP and Why Is It So Important to Economists and Investors?).",
               },
               {
                 tipo: "section",
-                titulo: "Métodos de cálculo:"
+                titulo: "Métodos de cálculo:",
               },
               {
                 tipo: "list",
@@ -345,7 +386,7 @@ export const cursosData = [
               },
               {
                 tipo: "section",
-                titulo: "PIB nominal vs. real:"
+                titulo: "PIB nominal vs. real:",
               },
               {
                 tipo: "list",
@@ -367,7 +408,7 @@ export const cursosData = [
               },
               {
                 tipo: "section",
-                titulo: "Causas principales:"
+                titulo: "Causas principales:",
               },
               {
                 tipo: "list",
@@ -379,7 +420,7 @@ export const cursosData = [
               },
               {
                 tipo: "section",
-                titulo: "Medición:"
+                titulo: "Medición:",
               },
               {
                 tipo: "list",
@@ -391,11 +432,12 @@ export const cursosData = [
               {
                 tipo: "section",
                 titulo: "Deflación:",
-                texto: "Descenso generalizado de precios, suele asociarse a contracción de la oferta monetaria y puede provocar recesión (Inflation vs. Deflation: What's the Difference?, Deflation: Definition, Causes, and Changing Views on Its Impact).",
+                texto:
+                  "Descenso generalizado de precios, suele asociarse a contracción de la oferta monetaria y puede provocar recesión (Inflation vs. Deflation: What's the Difference?, Deflation: Definition, Causes, and Changing Views on Its Impact).",
               },
               {
                 tipo: "video",
-                src: "https://www.youtube.com/watch?v=Pg8-2VZNdCk"
+                src: "https://www.youtube.com/watch?v=Pg8-2VZNdCk",
               },
             ],
           },
@@ -405,7 +447,8 @@ export const cursosData = [
               {
                 tipo: "section",
                 titulo: "Definición:",
-                texto: "Porcentaje de la población activa que busca empleo sin éxito (What Is Unemployment? Causes, Types, and Measurement, How the Unemployment Rate Affects Everybody - Investopedia).",
+                texto:
+                  "Porcentaje de la población activa que busca empleo sin éxito (What Is Unemployment? Causes, Types, and Measurement, How the Unemployment Rate Affects Everybody - Investopedia).",
               },
               {
                 tipo: "section",
@@ -443,7 +486,8 @@ export const cursosData = [
               {
                 tipo: "section",
                 titulo: "Política fiscal:",
-                texto: "Uso de gasto público e impuestos para influir en la demanda agregada y estabilizar la economía.",
+                texto:
+                  "Uso de gasto público e impuestos para influir en la demanda agregada y estabilizar la economía.",
               },
               {
                 tipo: "list",
@@ -455,7 +499,8 @@ export const cursosData = [
               {
                 tipo: "section",
                 titulo: "Política monetaria:",
-                texto: "Manejo de la oferta de dinero y tasas de interés por el banco central.",
+                texto:
+                  "Manejo de la oferta de dinero y tasas de interés por el banco central.",
               },
               {
                 tipo: "list",
@@ -481,6 +526,20 @@ export const cursosData = [
               },
             ],
           },
+          {
+            nombre: "Ejercicio práctico",
+            contenido: [
+              {
+                tipo: "section",
+                titulo: "Ejercicio práctico",
+                texto:
+                  "Reflexiona sobre cómo el dinero ha influido en tu vida y cómo lo usas en tu día a día. Y no te preocupes, ¡no es un examen!",
+              },
+              {
+                tipo: "examen",
+              },
+            ],
+          },
         ],
       },
     ],
@@ -496,16 +555,49 @@ export const cursosData = [
         nombre: "Fundamentos de computación",
         descripcion:
           "Aprende sobre hardware, software y cómo funcionan los sistemas informáticos.",
+          lecciones: [
+            {
+              nombre: "Lecciones Por definir",
+              contenido: [
+                {
+                  tipo: "section",
+                  titulo: "Contenido por definir",
+                },
+              ],
+            },
+          ],
       },
       {
         nombre: "Internet y seguridad digital",
         descripcion:
           "Navega con seguridad y aprende a proteger tu información personal en línea.",
+          lecciones: [
+            {
+              nombre: "Lecciones Por definir",
+              contenido: [
+                {
+                  tipo: "section",
+                  titulo: "Contenido por definir",
+                },
+              ],
+            },
+          ],
       },
       {
         nombre: "Ofimática básica",
         descripcion:
           "Conoce herramientas como Word, Excel y PowerPoint para usarlas eficazmente.",
+          lecciones: [
+            {
+              nombre: "Lecciones Por definir",
+              contenido: [
+                {
+                  tipo: "section",
+                  titulo: "Contenido por definir",
+                },
+              ],
+            },
+          ],
       },
     ],
   },
@@ -520,16 +612,49 @@ export const cursosData = [
         nombre: "Pensamiento creativo",
         descripcion:
           "Fomenta tu imaginación y aprende técnicas para generar ideas innovadoras.",
+          lecciones: [
+            {
+              nombre: "Lecciones Por definir",
+              contenido: [
+                {
+                  tipo: "section",
+                  titulo: "Contenido por definir",
+                },
+              ],
+            },
+          ],
       },
       {
         nombre: "Resolución de problemas",
         descripcion:
           "Aprende a analizar y enfrentar desafíos con lógica y creatividad.",
+          lecciones: [
+            {
+              nombre: "Lecciones Por definir",
+              contenido: [
+                {
+                  tipo: "section",
+                  titulo: "Contenido por definir",
+                },
+              ],
+            },
+          ],
       },
       {
         nombre: "Trabajo en equipo",
         descripcion:
           "Descubre cómo colaborar eficazmente con otros para alcanzar objetivos comunes.",
+          lecciones: [
+            {
+              nombre: "Lecciones Por definir",
+              contenido: [
+                {
+                  tipo: "section",
+                  titulo: "Contenido por definir",
+                },
+              ],
+            },
+          ],
       },
     ],
   },
@@ -544,16 +669,49 @@ export const cursosData = [
         nombre: "Salud física y mental",
         descripcion:
           "Conoce los pilares para mantener un cuerpo y mente saludables.",
+          lecciones: [
+            {
+              nombre: "Lecciones Por definir",
+              contenido: [
+                {
+                  tipo: "section",
+                  titulo: "Contenido por definir",
+                },
+              ],
+            },
+          ],
       },
       {
         nombre: "Hábitos saludables",
         descripcion:
           "Establece rutinas positivas que favorezcan tu bienestar diario.",
+          lecciones: [
+            {
+              nombre: "Lecciones Por definir",
+              contenido: [
+                {
+                  tipo: "section",
+                  titulo: "Contenido por definir",
+                },
+              ],
+            },
+          ],
       },
       {
         nombre: "Manejo del estrés",
         descripcion:
           "Identifica fuentes de estrés y aprende técnicas para afrontarlo de manera saludable.",
+          lecciones: [
+            {
+              nombre: "Lecciones Por definir",
+              contenido: [
+                {
+                  tipo: "section",
+                  titulo: "Contenido por definir",
+                },
+              ],
+            },
+          ],
       },
     ],
   },
@@ -568,16 +726,49 @@ export const cursosData = [
         nombre: "Introducción al emprendimiento",
         descripcion:
           "Descubre qué implica emprender y cómo transformar una idea en acción.",
+          lecciones: [
+            {
+              nombre: "Lecciones Por definir",
+              contenido: [
+                {
+                  tipo: "section",
+                  titulo: "Contenido por definir",
+                },
+              ],
+            },
+          ],
       },
       {
         nombre: "Modelo de negocio",
         descripcion:
           "Aprende a estructurar y validar un modelo de negocio sostenible.",
+          lecciones: [
+            {
+              nombre: "Lecciones Por definir",
+              contenido: [
+                {
+                  tipo: "section",
+                  titulo: "Contenido por definir",
+                },
+              ],
+            },
+          ],
       },
       {
         nombre: "Marketing básico",
         descripcion:
           "Conoce estrategias clave para dar a conocer y posicionar tu producto o servicio.",
+          lecciones: [
+            {
+              nombre: "Lecciones Por definir",
+              contenido: [
+                {
+                  tipo: "section",
+                  titulo: "Contenido por definir",
+                },
+              ],
+            },
+          ],
       },
     ],
   },

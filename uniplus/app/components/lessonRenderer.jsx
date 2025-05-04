@@ -5,15 +5,60 @@ import CloudsBg from "./CloudsBg";
 import Image from "next/image";
 import Link from "next/link";
 import { cursosData } from "@/app/data/cursosData";
+import { useRouter } from "next/navigation";
+
 
 export default function LessonRenderer({
   contenido,
   idCurso,
   idModulo,
   idLeccion,
+  moduleKey
 }) {
+  const router = useRouter();
   const totalLecciones = cursosData[idCurso].modulos[idModulo].lecciones.length;
   const esUltimaLeccion = idLeccion === totalLecciones - 1;
+
+  async function handleStartLesson (e) {
+    e.preventDefault(); 
+    const moduleUrl = `/courses/${idCurso}/${idModulo}/${idLeccion + 1}`;
+    try {
+      const response = await fetch("/api/updateProgress", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ moduleKey, moduleUrl }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Error al registrar el progreso del módulo");
+      }
+      router.push(moduleUrl);
+    } catch (error) {
+      console.error("Error al registrar el progreso del módulo:", error);
+    }
+  };
+  async function handleStartExam (e) {
+    e.preventDefault(); 
+    const moduleUrl = `/courses/${idCurso}/${idModulo}/${idLeccion}/${idModulo}`;
+    try {
+      const response = await fetch("/api/updateProgress", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ moduleKey, moduleUrl }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Error al registrar el progreso del módulo");
+      }
+      router.push(moduleUrl);
+    } catch (error) {
+      console.error("Error al registrar el progreso del módulo:", error);
+    }
+  };
   return (
     <div className="relative w-full flex justify-center items-center z-0">
       <CloudsBg />
@@ -90,24 +135,26 @@ export default function LessonRenderer({
           if (item.tipo === "examen") {
             return (
               <div key={index}>
-                <Link
+                <a
+                  onClick={handleStartExam}
                   className="bg-[#4a7298] text-white text-2xl px-6 py-3 rounded-lg mt-6 font-bold hover:bg-[#3a5a78]"
                   href={`/courses/${idCurso}/${idModulo}/${idLeccion}/${idModulo}`}
                 >
                   Iniciar Autoevaluacion
-                </Link>
+                </a>
               </div>
             );
           }
           return null;
         })}
         {!esUltimaLeccion && (
-          <Link
+          <a
             href={`/courses/${idCurso}/${idModulo}/${idLeccion + 1}`}
+            onClick={handleStartLesson}
             className="bg-[#4a7298] text-white text-2xl px-6 py-3 rounded-lg mt-6 font-bold hover:bg-[#3a5a78]"
           >
             Ir a la siguiente Lección
-          </Link>
+          </a>
         )}
       </div>
     </div>
