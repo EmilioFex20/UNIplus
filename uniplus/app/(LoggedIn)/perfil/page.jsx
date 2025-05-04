@@ -33,11 +33,6 @@ export default function contact() {
     obtenerPregunta();
   };
 
-  function decodeHTML(html) {
-    const txt = document.createElement("textarea");
-    txt.innerHTML = html;
-    return txt.value;
-  }
   return (
     <>
       <div className="flex px-44 ">

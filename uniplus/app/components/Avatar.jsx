@@ -57,9 +57,6 @@ export default function Avatar() {
                 <li>👤 Ir al Perfil</li>
               </button>
               <hr className="my-2 text-gray-400" />
-              <button className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2 w-full" onClick={handleProfileClick}>
-                <li>🏅 Medallas</li>
-              </button>
               <button className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center gap-2 w-full" onClick={handleCoursesClick}>
                 <li>🏠 Cursos</li>
               </button>
