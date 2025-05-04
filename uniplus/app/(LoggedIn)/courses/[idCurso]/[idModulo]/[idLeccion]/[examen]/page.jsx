@@ -115,6 +115,13 @@ export default function ExamenPage({ params }) {
       if (!response.ok) {
         throw new Error("Error al registrar el progreso del módulo");
       }
+      const incrementResponse = await fetch("/api/updateModuleProgress", {
+        method: "PUT",
+      });
+  
+      if (!incrementResponse.ok) {
+        throw new Error("Error al incrementar modulesCompleted");
+      }
 
       window.location.href = moduleUrl;
     } catch (error) {
@@ -134,6 +141,14 @@ export default function ExamenPage({ params }) {
 
       if (!response.ok) {
         throw new Error("Error al registrar el progreso del módulo");
+      }
+
+      const incrementResponse = await fetch("/api/updateCourseProgress", {
+        method: "PUT",
+      });
+  
+      if (!incrementResponse.ok) {
+        throw new Error("Error al incrementar modulesCompleted");
       }
 
       window.location.href = moduleUrl;
