@@ -5,9 +5,6 @@ export default function FooterLandingPage() {
     return (
       <>
         <div className="bg-[#0d2e4e] text-white py-4 px-60 flex justify-between"> 
-            <div>
-            Texto de footer que todavia no se ha decidido
-            </div>
             <div className="flex">
                 <p className="w-70 text-[.9rem] self-center text-justify text-[#bed4ee]">
                     Somos una plataforma de formación interactiva y gamificada sobre habilidades clave para la vida que no se enseñan en la universidad, accesible desde tu navegador.

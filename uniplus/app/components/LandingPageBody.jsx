@@ -10,7 +10,6 @@ export default function LandingPageBody(){
           <div className="w-full">
             <HeroSection/>
             <LandingPageTemas></LandingPageTemas>
-            <LandingPageScroll></LandingPageScroll>
             <LandingPageCommunity></LandingPageCommunity>
             <LandingPageEnd></LandingPageEnd>
           </div>
