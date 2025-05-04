@@ -255,7 +255,8 @@ export default function CoffeeGame() {
   };
 
   return (
-    <div className="flex">
+    <div className="w-full flex justify-center">
+    <div className="flex max-w-screen-xl w-full">
       <div className="w-1/3 p-4 bg-[#7e3200]/80 text-xl rounded-l-xl">
         <h1 className="font-bold mb-4">Panel de Control</h1>
         <p>Día actual: {dia}</p>
@@ -293,9 +294,10 @@ export default function CoffeeGame() {
         </button>
       </div>
 
-      <div id="parent" className="w-2/3">
+      <div id="parent" className="min-w-3/5 ">
         <div ref={containerRef} className="rounded-xl overflow-hidden "/>
       </div>
+    </div>
     </div>
   );
 }
