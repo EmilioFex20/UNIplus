@@ -21,15 +21,18 @@ export default function LessonPage({ params }) {
   const leccion = modulo.lecciones[idLeccion];
 
   return (
-    <div className="max-w-full min-h-screen bg-white px-20 py-10">
+    <div className="max-w-full min-h-full bg-white px-20">
       <h1 className="text-[#4a7298] font-bold text-4xl mb-4">
         {curso.nombre} - {modulo.nombre}
       </h1>
-      <h1 className="text-[#4a7298] text-3xl mb-4">
-        {leccion.nombre}
-      </h1>
+      <h1 className="text-[#4a7298] text-3xl mb-4">{leccion.nombre}</h1>
       <div className="bg-[#d3eefc] p-6 items-center justify-center rounded-4xl shadow mb-10">
-        <LessonRenderer contenido={leccion.contenido} idCurso={idCurso} idModulo={idModulo} idLeccion={idLeccion}/>
+        <LessonRenderer
+          contenido={leccion.contenido}
+          idCurso={idCurso}
+          idModulo={idModulo}
+          idLeccion={idLeccion}
+        />
       </div>
 
       {leccion.nombre.includes("Juego 1") && (

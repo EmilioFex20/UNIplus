@@ -3,7 +3,7 @@ import User from "@/models/user";
 import jwt from "jsonwebtoken";
 
 export default async function handler(req, res) {
-  if (req.method !== "PUT") return res.status(405).end();
+  if (req.method !== "PUT") return res.status(405).json({ message: "Método no permitido" });
 
   try {
     await connectToDatabase();
@@ -16,13 +16,16 @@ export default async function handler(req, res) {
 
     if (!user) return res.status(404).json({ message: "Usuario no encontrado" });
 
-    const { economia } = req.body;
-    user.economia = economia;
+    const { moduleKey, moduleUrl } = req.body;
+    if (!moduleKey || !moduleUrl) {
+      return res.status(400).json({ message: "Faltan datos requeridos" });
+    }
+    user[moduleKey] = moduleUrl;
     await user.save();
 
     res.status(200).json({ message: "Progreso actualizado" });
   } catch (error) {
-    console.error("Error al actualizar economía:", error);
+    console.error("Error al actualizar el progreso del módulo:", error);
     res.status(500).json({ message: "Error del servidor" });
   }
 }

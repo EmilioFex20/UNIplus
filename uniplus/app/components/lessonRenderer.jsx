@@ -13,7 +13,6 @@ export default function LessonRenderer({
   idLeccion,
 }) {
   const totalLecciones = cursosData[idCurso].modulos[idModulo].lecciones.length;
-  console.log("Lecciones totales:", totalLecciones);
   const esUltimaLeccion = idLeccion === totalLecciones - 1;
   return (
     <div className="relative w-full flex justify-center items-center z-0">

@@ -6,6 +6,15 @@ import { useState } from "react";
 export default function Roadmap() {
   const [idCursoActivo, setIdCursoActivo] = useState(null);
 
+  const moduleKeys = [
+    "desarrolloState",
+    "economiaState",
+    "tecnologiaState",
+    "creatividadState",
+    "saludState",
+    "finanzasState",
+  ];
+
   return (
     <>
       <div
@@ -13,12 +22,15 @@ export default function Roadmap() {
         style={{ backgroundImage: "url('/caminoRoadmap.svg')" }}
       >
       {[0, 1, 2, 3, 4, 5].map((id) => (
-        <CourseCard
-          key={id}
-          idCurso={id}
-          idCursoActivo={idCursoActivo}
-          setIdCursoActivo={setIdCursoActivo}
-        />
+        <>
+          <CourseCard
+            key={id}
+            idCurso={id}
+            idCursoActivo={idCursoActivo}
+            setIdCursoActivo={setIdCursoActivo}
+            moduleKey={moduleKeys[id]} 
+          />
+        </>
       ))}
 
       </div>
