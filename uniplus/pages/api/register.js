@@ -7,7 +7,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: "Método no permitido" });
 
   try {
-    const { name, lastName, email, password, coursesCompleted, modulesCompleted, economiaState, finanzasState, creatividadState, SaludState, DesarrolloState, tecnologiaState} = req.body;
+    const { name, lastName, email, password} = req.body;
 
     if (!email || !password || !name || !lastName) {
       return res.status(400).json({ message: "Todos los campos son obligatorios" });
@@ -38,7 +38,7 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: "Error procesando la contraseña" });
     }
 
-    const newUser = new User({ name, lastName, email, password: hashedPassword, coursesCompleted, modulesCompleted, economiaState, finanzasState, creatividadState, SaludState, DesarrolloState, tecnologiaState });
+    const newUser = new User({ name, lastName, email, password: hashedPassword });
 
     try {
       await newUser.save();

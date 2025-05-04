@@ -11,13 +11,22 @@ export default function CoursePage({ params }) {
   const descripcionCursos = curso.descripcion;
   const modulosCurso = curso.modulos;
 
+  const moduleKeys = [
+    "desarrolloState",
+    "economiaState",
+    "tecnologiaState",
+    "creatividadState",
+    "saludState",
+    "finanzasState",
+  ];
+
   return (
-    <div className="w-full h-screen flex flex-col text-left px-4 py-6 overflow-hidden">
+    <div className="w-full h-full flex flex-col text-left px-4 overflow-hidden">
       <CourseInfo
         nombresCursos={nombresCursos}
         descripcionCursos={descripcionCursos}
       />
-      <div className="flex gap-5 px-20 py-5 overflow-x-auto">
+      <div className="flex gap-5 mx-20 py-5 overflow-x-auto">
         {modulosCurso.map((modulo, index) => (
           <ModuleInfoCard
             key={index}
@@ -25,6 +34,7 @@ export default function CoursePage({ params }) {
             idModulo={index}
             nombreModulo={modulo.nombre}
             descripcionModulo={modulo.descripcion}
+            moduleKey={moduleKeys[idCurso]}
           />
         ))}
       </div>

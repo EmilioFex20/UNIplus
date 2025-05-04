@@ -24,7 +24,7 @@ export const cursosData = [
     ],
   },
   {
-    nombre: "Finanzas Personales",
+    nombre: "Economía",
     descripcion:
       "Aprende a manejar tu dinero de forma inteligente, comprende conceptos económicos básicos y toma decisiones financieras acertadas.",
     imagen: "/logoFinanzasPersonales.svg",
@@ -184,37 +184,94 @@ export const cursosData = [
                   "Tamaño y composición de la población",
                 ],
               },
+              {
+                tipo: "video",
+                src: "https://www.youtube.com/watch?v=biAStThvUQE",
+              },
             ],
           },
           {
-            nombre: "Lección 2: Funciones del dinero",
+            nombre: "Lección 2: ¿Qué es la oferta?",
             contenido: [
               {
                 tipo: "section",
-                titulo: "¿Cuáles son las funciones del dinero?",
-                texto: "Sirve como medio de intercambio, unidad de cuenta...",
+                titulo: "Definición",
+                texto: "La oferta es la cantidad de un bien o servicio que los productores están dispuestos y pueden vender a distintos precios, en un período determinado. A precios más altos, la oferta tiende a aumentar; a precios más bajos, a disminuir (Law of Supply and Demand in Economics: How It Works).",
+              },
+              {
+                tipo: "section",
+                titulo: "Ley de la oferta",
+                texto: "\“A mayor precio, mayor cantidad ofrecida; a menor precio, menor cantidad ofrecida.\”Los productores maximizan beneficios, por eso ofrecen más cuando el precio sube (Law of Supply Explained, With the Curve, Types, and Examples).",
+              },
+              {
+                tipo: "list",
+                items:[
+                  "Costos de producción (materias primas, salarios)",
+                  "Tecnología y productividad",
+                  "Impuestos y subsidios",
+                  "Expectativas de precio futuro",
+                  "Número de vendedores en el mercado",
+                ],
+              },
+              {
+                tipo: "video",
+                src: "https://www.youtube.com/watch?v=Mk82L7sU7eg",
+              },
+            ],
+          },
+          {
+            nombre: "Lección 3: Equilibrio de mercado",
+            contenido: [
+              {
+                tipo: "section",
+                titulo: "Precio de equilibrio",
+                texto:
+                  "Punto en que cantidad demandada = cantidad ofrecida. No hay escasez ni excedente (Introduction to Supply and Demand).",
               },
               {
                 tipo: "list",
                 items: [
-                  "Medio de intercambio",
-                  "Unidad de cuenta",
-                  "Depósito de valor",
-                  "Estándar de pago diferido",
+                  "Exceso de demanda (escasez): precio por debajo del equilibrio → Qd > Qs → presión al alza.",
+                  "Exceso de oferta (superávit): precio por encima del equilibrio → Qs > Qd → presión a la baja.",
                 ],
+              },
+              {
+                tipo: "video",
+                src: "https://www.youtube.com/watch?v=gw-4_WWyUkA",
+              },
+              {
+                tipo: "infografia",
+                src: "/infografias/EconomíaRecurso4Modulo2.png",
+                alt: "Gráficas sobre oferta y demanda",
               },
             ],
           },
           {
-            nombre: "Lección 3: Características del “buen” dinero",
+            nombre: "Lección 4: Desplazamientos de las curvas",
             contenido: [
               {
                 tipo: "section",
-                titulo: "¿Qué hace que el dinero sea confiable?",
-                texto:
-                  "Debe ser duradero, divisible, portátil y aceptado por todos.",
+                titulo: "Desplazamientos de la demanda",
               },
-            ],
+              {
+                tipo: "list",
+                items: [
+                  "Derecha (aumenta): sube precio y cantidad (e.g., mayor ingreso para bienes normales) (Change In Demand: Definition, Causes, Example, and Graph).",
+                  "Izquierda (disminuye): baja precio y cantidad.",
+                ],
+              },
+              {
+                tipo: "section",
+                titulo: "Desplazamientos de la oferta",
+              },
+              {
+                tipo: "list",
+                items: [
+                  "Derecha (aumenta): baja precio y sube cantidad (e.g., avance tecnológico) (Change in Supply: What Causes a Shift in the Supply Curve?).",
+                  "Izquierda (disminuye): sube precio y baja cantidad.",
+                ],
+              },
+            ]
           },
           {
             nombre: "Ejercicio práctico",
@@ -237,57 +294,190 @@ export const cursosData = [
           "Explora los conceptos clave de la macroeconomía y su impacto en tus finanzas.",
         lecciones: [
           {
-            nombre: "Lección 1: Definición y origen del dinero",
+            nombre: "Lección 1: ¿Qué estudia la macroeconomía?",
             contenido: [
               {
                 tipo: "section",
-                titulo: "¿Qué es el dinero?",
+                titulo: "Definición:",
                 texto:
-                  "El dinero es un sistema de valor aceptado por una comunidad...",
+                  "La macroeconomía analiza la economía en su conjunto: producción total, precios agregados e indicadores laborales. Se centra en variables como el PIB, la inflación y el desempleo para entender y guiar la política pública (Introduction to Macroeconomics - Investopedia, Macroeconomics Definition, History, and Schools of Thought).",
+              },
+              {
+                tipo: "video",
+                src: "https://www.youtube.com/watch?v=gLIdMnMMxNg",
               },
               {
                 tipo: "section",
-                titulo: "Breve evolución histórica",
+                titulo: "Diferencia con microeconomía:",
               },
               {
                 tipo: "list",
                 items: [
-                  "Trueque: intercambio directo de bienes.",
-                  "Dinero mercancía: bienes con valor intrínseco.",
-                  "Primeras monedas: acuñadas en Lidia.",
-                  "Papel moneda: China, siglo XII.",
-                  "Dinero moderno: fiduciario y digital.",
+                  "Microeconomía: decisiones de individuos y empresas.",
+                  "Macroeconomía: decisiones de gobiernos y resultados agregados (Microeconomics vs. Macroeconomics: What's the Difference?).",
+                ],
+              },
+              {
+                tipo: "video",
+                src: "https://www.youtube.com/watch?v=a_uo9UEguTY",
+              },
+            ],
+          },
+          {
+            nombre: "Lección 2: Producto Interno Bruto (PIB)",
+            contenido: [
+              {
+                tipo: "section",
+                titulo: "¿Qué es el PIB?",
+                texto: "Es el valor monetario de todos los bienes y servicios finales producidos dentro de un país en un período determinado; sirve como “termómetro” de la salud económica (Gross Domestic Product (GDP) Formula and How to Use It, What Is GDP and Why Is It So Important to Economists and Investors?).",
+              },
+              {
+                tipo: "section",
+                titulo: "Métodos de cálculo:"
+              },
+              {
+                tipo: "list",
+                items: [
+                  "Enfoque por gasto: suma de consumo (C), inversión (I), gasto público (G) y exportaciones netas (X-M) (Calculating GDP With the Expenditure Approach - Investopedia).",
+                  "Enfoque por ingreso: salarios, rentas, intereses y beneficios totales (Calculating GDP With the Income Approach - Investopedia).",
+                  "Enfoque por producción (valor agregado): valor añadido en cada etapa productiva.",
+                ],
+              },
+              {
+                tipo: "section",
+                titulo: "PIB nominal vs. real:"
+              },
+              {
+                tipo: "list",
+                items: [
+                  "Nominal: valor a precios corrientes (Nominal Gross Domestic Product: Definition and Formula).",
+                  "Real: ajustado por inflación, refleja cambio en cantidades (Real Gross Domestic Product (Real GDP): How to Calculate It, vs ...).",
                 ],
               },
             ],
           },
           {
-            nombre: "Lección 2: Funciones del dinero",
+            nombre: "Lección 3: Inflación y deflación",
             contenido: [
               {
                 tipo: "section",
-                titulo: "¿Cuáles son las funciones del dinero?",
-                texto: "Sirve como medio de intercambio, unidad de cuenta...",
+                titulo: "Inflación:",
+                texto:
+                  "Aumento sostenido del nivel general de precios que reduce el poder adquisitivo del dinero (What It Is and How to Control Inflation Rates - Investopedia, When Is Inflation Good for the Economy? - Investopedia).",
+              },
+              {
+                tipo: "section",
+                titulo: "Causas principales:"
               },
               {
                 tipo: "list",
                 items: [
-                  "Medio de intercambio",
-                  "Unidad de cuenta",
-                  "Depósito de valor",
-                  "Estándar de pago diferido",
+                  "Demanda excesiva (demanda-pull).",
+                  "Aumento de costos (cost-push).",
+                  "Incremento de la masa monetaria.",
                 ],
+              },
+              {
+                tipo: "section",
+                titulo: "Medición:"
+              },
+              {
+                tipo: "list",
+                items: [
+                  "IPC (Índice de Precios al Consumidor): canasta de bienes y servicios (What Is the Consumer Price Index (CPI)? - Investopedia).",
+                  "IPyV (Deflactor del PIB).",
+                ],
+              },
+              {
+                tipo: "section",
+                titulo: "Deflación:",
+                texto: "Descenso generalizado de precios, suele asociarse a contracción de la oferta monetaria y puede provocar recesión (Inflation vs. Deflation: What's the Difference?, Deflation: Definition, Causes, and Changing Views on Its Impact).",
+              },
+              {
+                tipo: "video",
+                src: "https://www.youtube.com/watch?v=Pg8-2VZNdCk"
               },
             ],
           },
           {
-            nombre: "Lección 3: Características del “buen” dinero",
+            nombre: "Lección 4: Desempleo",
             contenido: [
               {
                 tipo: "section",
-                titulo: "¿Qué hace que el dinero sea confiable?",
-                texto:
-                  "Debe ser duradero, divisible, portátil y aceptado por todos.",
+                titulo: "Definición:",
+                texto: "Porcentaje de la población activa que busca empleo sin éxito (What Is Unemployment? Causes, Types, and Measurement, How the Unemployment Rate Affects Everybody - Investopedia).",
+              },
+              {
+                tipo: "section",
+                titulo: "Cálculo (tasa oficial U-3):",
+              },
+              {
+                tipo: "list",
+                items: [
+                  "Tasa de desempleo = (Número de desempleados / Fuerza laboral) × 100",
+                ],
+              },
+              {
+                tipo: "section",
+                titulo: "Tipos de desempleo:",
+              },
+              {
+                tipo: "list",
+                items: [
+                  "Friccional: transición entre empleos.",
+                  "Estructural: desajuste de habilidades vs. demanda laboral.",
+                  "Cíclico: ligado al ciclo económico.",
+                  "Natural: nivel mínimo asociado a fricción y estructura del mercado (What Is the Natural Unemployment Rate? - Investopedia).",
+                ],
+              },
+              {
+                tipo: "infografia",
+                src: "/infografias/EconomíaRecurso4Modulo3.png",
+                alt: "Grafico sobre el desempleo",
+              },
+            ],
+          },
+          {
+            nombre: "Lección 5: Política fiscal y monetaria",
+            contenido: [
+              {
+                tipo: "section",
+                titulo: "Política fiscal:",
+                texto: "Uso de gasto público e impuestos para influir en la demanda agregada y estabilizar la economía.",
+              },
+              {
+                tipo: "list",
+                items: [
+                  "Expansiva: aumenta gasto o reduce impuestos para estimular (All About Fiscal Policy: What It Is, Why It Matters, and Examples, What Are Some Examples of Expansionary Fiscal Policy?).",
+                  "Contractiva: reduce gasto o sube impuestos para frenar inflación.",
+                ],
+              },
+              {
+                tipo: "section",
+                titulo: "Política monetaria:",
+                texto: "Manejo de la oferta de dinero y tasas de interés por el banco central.",
+              },
+              {
+                tipo: "list",
+                items: [
+                  "Expansiva: baja tasas, inyecta liquidez para estimular (Monetary Policy and Inflation).",
+                  "Contractiva: sube tasas, retira liquidez para controlar precios.",
+                ],
+              },
+              {
+                tipo: "section",
+                titulo: "Diferencias clave:",
+              },
+              {
+                tipo: "list",
+                items: [
+                  "Responsable: gobierno (fiscal) vs. banco central (monetaria).",
+                  "Herramientas: impuestos y gasto (fiscal) vs. tasas, operaciones de mercado abierto, coeficientes de reservas (monetaria) (Monetary Policy vs. Fiscal Policy: What's the Difference?).",
+                ],
+              },
+              {
+                tipo: "video",
+                src: "https://www.youtube.com/watch?v=78q-M59onow",
               },
             ],
           },
@@ -368,9 +558,9 @@ export const cursosData = [
     ],
   },
   {
-    nombre: "Emprendimiento y Negocios",
+    nombre: "Finanzas Personales",
     descripcion:
-      "Conoce los fundamentos del emprendimiento y aprende a construir, modelar y promover un negocio propio desde cero.",
+      "Conoce los fundamentos para manejar tu dinero, invertir y planificar tu futuro financiero.",
     imagen: "/logoEmprenNegocios.svg",
     posicion: "left-[90%] top-[28%]",
     modulos: [

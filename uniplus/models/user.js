@@ -7,12 +7,12 @@ const UserSchema = new mongoose.Schema({
   password: { type: String, required: true },
   coursesCompleted: {type:Number,default: 0, required:false},
   modulesCompleted: {type:Number,default: 0, required:false},
-  economiaState:{type: Number, default: 0,required: false },
-  finanzasState:{type: Number, default: 0,required: false },
-  creatividadState:{type: Number, default: 0,required: false },
-  SaludState:{type: Number, default: 0,required: false },
-  DesarrolloState:{type: Number, default: 0,required: false },
-  tecnologiaState:{type: Number, default: 0,required: false }
+  economiaState:{type: String, default: "/",required: false },
+  finanzasState:{type: String, default: "/",required: false },
+  creatividadState:{type: String, default: "/",required: false },
+  saludState:{type: String, default: "/",required: false },
+  desarrolloState:{type: String, default: "/",required: false },
+  tecnologiaState:{type: String, default: "/",required: false }
 });
 
 export default mongoose.models.User || mongoose.model("User", UserSchema);

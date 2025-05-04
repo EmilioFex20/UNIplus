@@ -4,7 +4,7 @@ import Image from "next/image";
 import { ModuleCard } from "./moduleCard";
 import { cursosData } from "@/app/data/cursosData";
 
-export function CourseCard({ idCurso, idCursoActivo, setIdCursoActivo }) {
+export function CourseCard({ idCurso, idCursoActivo, setIdCursoActivo, moduleKey }) {
   const isOpen = idCursoActivo === idCurso;
 
   const showInfoHandler = () => {
@@ -39,7 +39,7 @@ export function CourseCard({ idCurso, idCursoActivo, setIdCursoActivo }) {
             </div>
           </button>
           {isOpen && (
-              <ModuleCard idModulo={idCurso} />
+              <ModuleCard idModulo={idCurso} moduleKey={moduleKey} />
           )}
         </div>
 
