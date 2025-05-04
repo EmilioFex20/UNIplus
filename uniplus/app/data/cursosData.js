@@ -313,6 +313,17 @@ export const cursosData = [
             ],
           },
           {
+            nombre: "Juego 2: Oferta y Demanda",
+            contenido: [
+              {
+                tipo: "section",
+                titulo: "Oferta y Demanda",
+                texto:
+                  "En este juego, aprenderás sobre la Oferta y Demanda",
+              },
+            ],
+          },
+          {
             nombre: "Ejercicio práctico",
             contenido: [
               {
