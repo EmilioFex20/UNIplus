@@ -3,22 +3,24 @@
 import { useEffect, useRef, useState } from "react";
 import * as Phaser from "phaser";
 
-const calcularDemanda = (precio) => {
-  const demandaBase = 10;
+function demandaBaseRand() {
+  return Math.random() * (30 - 10 + 1) + 10;
+}
+
+function calcularDemanda(precioVenta, demandaBase) {
   const precioBase = 5;
   const sensibilidad = 1.5;
+  return Math.max(0, Math.round(demandaBase - sensibilidad * (precioVenta - precioBase)));
+}
 
-  return Math.max(0, Math.round(demandaBase - sensibilidad * (precio - precioBase)));
-};
-
-const calcularVentasYGanancias = ({ precio, oferta, costoUnitario }) => {
-  const demanda = calcularDemanda(precio);
+const calcularVentasYGanancias = ({ precio, oferta, costo, demandaBase }) => {
+  const demanda = calcularDemanda(precio, demandaBase);
   const ventas = Math.min(oferta, demanda);
   const ingreso = ventas * precio;
-  const costoTotal = oferta * costoUnitario;
+  const costoTotal = oferta * costo;
   const ganancia = ingreso - costoTotal;
 
-  return { demanda, ventas, ingreso, ganancia };
+  return { demanda, ventas, ingreso, ganancia, costoTotal };
 };
 
 export default function CoffeeGame() {
@@ -26,25 +28,34 @@ export default function CoffeeGame() {
   const containerRef = useRef(null);
 
   const [dia, setDia] = useState(1);
+  const [demandaBase, setDemandaBase] = useState(10);
+  const [demanda, setDemanda] =useState(demandaBaseRand());
   const [oferta, setOferta] = useState(10);
-  const [costo, setCosto] = useState(2);
-  const [precio, setPrecio] = useState(5);
-  const [dinero, setDinero] = useState(0);
-  const [ventas, setVentas] = useState(0);
+  const [costoUnidad, setCostoUnidad] = useState(2);
+  const [precioVenta, setPrecioVenta] = useState(5);
+  const [balance, setBalance] = useState(0);
+  const [unidadesVendidas, setUnidadesVendidas] = useState(0);
   const [juegoActivo, setJuegoActivo] = useState(false);
+
   const ofertaRef = useRef(oferta);
-  const precioRef = useRef(precio);
-  const ventasRef = useRef(ventas);
+  const precioRef = useRef(precioVenta);
+  const unidadesVendidasRef = useRef(unidadesVendidas);
   const juegoActivoRef = useRef(juegoActivo);
   const diaRef = useRef(dia);
+  const demandaRef = useRef(demanda);
 
   useEffect(() => {
     ofertaRef.current = oferta;
-    precioRef.current = precio;
-    ventasRef.current = ventas;
+    demandaRef.current = demanda;
+    precioRef.current = precioVenta;
+    unidadesVendidasRef.current = unidadesVendidas;
     juegoActivoRef.current = juegoActivo;
     diaRef.current = dia;
-  }, [oferta, precio, ventas, juegoActivo, dia]);
+  }, [oferta, precioVenta, unidadesVendidas, juegoActivo, dia, demanda]);
+
+  useEffect(() => {
+    setDemanda(calcularDemanda(precioVenta, demandaBase));
+  }, [precioVenta, demandaBase]);
 
   useEffect(() => {
     if (gameRef.current) return;
@@ -96,38 +107,34 @@ export default function CoffeeGame() {
       }
 
       update() {
-        console.log(diaRef.current);
-        console.log(ofertaRef.current);
         const {
           getJuegoActivo,
           getOferta,
-          getVentas,
+          getUnidadesVendidas,
           getDemanda,
           setJuegoActivo,
         } = this.reactBridge;
 
-        if(diaRef.current==6){
+        if (diaRef.current == 6) {
           this.dayCompleteText.setText('Juego Terminado');
           this.dayCompleteText.setVisible(true);
+        }
 
-        };
-
-        if (!getJuegoActivo()||diaRef.current==6) {
+        if (!getJuegoActivo() || diaRef.current == 6) {
           this.comprador.setFrame(0);
           return;
         }
+
         if (ofertaRef.current == 0) {
           setDia((prev) => prev + 1);
           this.comprador.anims.stop();
           setJuegoActivo(false);
-
           this.dayCompleteText.setText('¡Día Completado!');
           this.dayCompleteText.setVisible(true);
 
-        this.time.delayedCall(2000, () => {
-        this.dayCompleteText.setVisible(false);
-        return;
-        });
+          this.time.delayedCall(2000, () => {
+            this.dayCompleteText.setVisible(false);
+          });
         }
 
         if (this.isPaused) return;
@@ -144,7 +151,7 @@ export default function CoffeeGame() {
           const {
             getOferta,
             getPrecio,
-            getVentas,
+            getUnidadesVendidas,
             getDemanda,
             setVentas,
             setOferta,
@@ -152,7 +159,7 @@ export default function CoffeeGame() {
           } = this.reactBridge;
 
           const oferta = getOferta();
-          const ventas = getVentas();
+          const ventas = getUnidadesVendidas();
           const demanda = getDemanda();
           const precio = getPrecio();
 
@@ -165,11 +172,10 @@ export default function CoffeeGame() {
           this.floatText.setText('+' + precio);
           this.floatText.setPosition(1070, 400);
           this.floatText.setVisible(true);
-    
+
           this.time.delayedCall(1000, () => {
             this.floatText.setVisible(false);
           });
-
 
           this.time.delayedCall(this.pauseTime, () => {
             this.isPaused = false;
@@ -181,21 +187,19 @@ export default function CoffeeGame() {
           this.comprador.x = -100;
           this.hasPaused = false;
           const oferta = getOferta();
-          const ventas = getVentas();
+          const ventas = getUnidadesVendidas();
           const demanda = getDemanda();
           if (oferta <= 0 || ventas >= demanda) {
             setDia((prev) => prev + 1);
-
             this.comprador.anims.stop();
             setJuegoActivo(false);
-
             this.dayCompleteText.setText('¡Día Completado!');
             this.dayCompleteText.setVisible(true);
 
-          this.time.delayedCall(2000, () => {
-          this.dayCompleteText.setVisible(false);
-          });
-        }
+            this.time.delayedCall(2000, () => {
+              this.dayCompleteText.setVisible(false);
+            });
+          }
         }
       }
     }
@@ -208,11 +212,8 @@ export default function CoffeeGame() {
       height: 1024,
       scale: {
         parent: "parent",
-
         mode: Phaser.Scale.FIT,
-
         width: 1536,
-
         height: 1024,
       },
       physics: {
@@ -222,12 +223,12 @@ export default function CoffeeGame() {
         velocidad: 4,
         getOferta: () => ofertaRef.current,
         getPrecio: () => precioRef.current,
-        getVentas: () => ventasRef.current,
-        getDemanda: () => calcularDemanda(precioRef.current),
+        getUnidadesVendidas: () => unidadesVendidasRef.current,
+        getDemanda: () => demandaRef.current,
         getJuegoActivo: () => juegoActivoRef.current,
-        setVentas,
+        setVentas: setUnidadesVendidas,
         setOferta,
-        setDinero,
+        setDinero: setBalance,
         setJuegoActivo,
       }),
     };
@@ -243,61 +244,74 @@ export default function CoffeeGame() {
   }, []);
 
   const iniciarNuevoDia = () => {
-    const {ganancia } = calcularVentasYGanancias({
-      precio,
+    const nuevaDemandaBase = demandaBaseRand();
+    setDemandaBase(nuevaDemandaBase);
+
+    const nuevaDemanda = calcularDemanda(precioVenta, nuevaDemandaBase);
+    setDemanda(nuevaDemanda);
+
+    const { costoTotal } = calcularVentasYGanancias({
+      precio: precioVenta,
       oferta,
-      costoUnitario: costo,
+      costo: costoUnidad,
+      demandaBase: nuevaDemandaBase,
     });
-    
-    setVentas(0);
-    setDinero((prev) => prev + ganancia);
+
+    setUnidadesVendidas(0);
+    setBalance((prev) => prev - costoTotal);
     setJuegoActivo(true);
   };
 
   return (
     <div className="w-full flex justify-center">
-    <div className="flex max-w-screen-xl w-full">
-      <div className="w-1/3 p-4 bg-[#7e3200]/80 text-xl rounded-l-xl">
-        <h1 className="font-bold mb-4">Panel de Control</h1>
-        <p>Día actual: {dia}</p>
-        <p>Demanda estimada: {calcularDemanda(precio)}</p>
-        <p>Cafés restantes: {oferta}</p>
-        <p>Costo de hacer 1 café: ${costo}</p>
-        <p>Ventas: {ventas}</p>
-        <p>Dinero: ${dinero}</p>
+      <div className="flex max-w-screen-xl w-full mx-auto">
+        <div className="w-1/3 p-4 bg-[#7e3200]/80 text-xl rounded-l-xl">
+          <h1 className="font-bold mb-4">Panel de Control</h1>
+          <p>Día actual: {dia}</p>
+          <p>Demanda estimada: {demanda}</p>
+          <p>Costo de hacer 1 café: ${costoUnidad}</p>
+          <p>Ventas: {unidadesVendidas}</p>
+          <p>Dinero: ${balance}</p>
 
-        <div className="mt-4">
-          <label>Precio: </label>
-          <input
-            type="number"
-            value={precio}
-            onChange={(e) => setPrecio(Number(e.target.value))}
-            className="border px-2 py-1 w-20"
-          />
+          <div className="mt-4">
+            <label>Precio: </label>
+            <input
+              type="number"
+              value={precioVenta}
+              onChange={(e) => setPrecioVenta(Number(e.target.value))}
+              className="border px-2 py-1 w-20"
+            />
+          </div>
+
+          <div className="mt-2">
+            <label>Oferta: </label>
+            <input
+              type="number"
+              value={oferta}
+              onChange={(e) => setOferta(Number(e.target.value))}
+              className="border px-2 py-1 w-20"
+            />
+          </div>
+
+          {juegoActivo ? (
+            <div className="mt-4 bg-gray-400 text-white px-4 py-2 rounded text-center">
+              Día en proceso...
+            </div>
+          ) : (
+            <button
+              onClick={iniciarNuevoDia}
+              className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
+            >
+              {dia === 1 ? "Comenzar" : "Siguiente Día"}
+            </button>
+          )}
         </div>
 
-        <div className="mt-2">
-          <label>Oferta: </label>
-          <input
-            type="number"
-            value={oferta}
-            onChange={(e) => setOferta(Number(e.target.value))}
-            className="border px-2 py-1 w-20"
-          />
+        <div id="parent" className="min-w-3/5 ">
+          <div ref={containerRef} className="rounded-xl overflow-hidden " />
         </div>
-
-        <button
-          onClick={iniciarNuevoDia}
-          className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
-        >
-          {dia==1?"Comenzar":"Siguiente Día"}
-        </button>
       </div>
-
-      <div id="parent" className="min-w-3/5 ">
-        <div ref={containerRef} className="rounded-xl overflow-hidden "/>
-      </div>
-    </div>
     </div>
   );
 }
+ 
