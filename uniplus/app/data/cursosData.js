@@ -168,7 +168,7 @@ export const cursosData = [
                 tipo: "section",
                 titulo: "Evolución del dinero",
                 texto:
-                  "En este juego, aprenderás sobre la evolución del dinero a través de diferentes eras y cómo ha cambiado su forma y función.",
+                  "En este juego, aprenderás sobre la evolución del dinero a través de diferentes eras y cómo ha cambiado su forma y función. Cumple con los objetivos que te pide cada personaje entregándoles lo que te piden de tu inventario a la izquierda",
               },
             ],
           },
@@ -319,7 +319,7 @@ export const cursosData = [
                 tipo: "section",
                 titulo: "Oferta y Demanda (...y mucho cafe)",
                 texto:
-                  "En este juego, aprenderás sobre la oferta y demanda",
+                  "Establece el precio de venta y cuántos cafés deseas producir para el día, ten en cuenta que tus decisiones afectan la demanda. Luego haz clic en \"Comenzar\" para iniciar la jornada.Durante el día, los compradores llegarán uno por uno. Venderás café hasta que se acabe tu inventario o se alcance la demanda máxima del día. Al final de cada día, se actualizará tu dinero según las ventas y los costos. ¡Planifica bien y maximiza tus ganancias!",
               },
             ],
           },

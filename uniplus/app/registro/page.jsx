@@ -11,7 +11,7 @@ export default function RegisterPage() {
     const data = Object.fromEntries(formData.entries());
 
     const email = data.email;
-    if (!email.includes('@') || !email.endsWith('.com')) {
+    if (!email.includes('@')) {
       alert("Por favor, ingresa un correo electrónico válido");
       return;
     }
