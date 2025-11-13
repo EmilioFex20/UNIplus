@@ -30,8 +30,8 @@ export function ModuleCard({ idModulo, moduleKey }) {
     descripcion: "Descripcion del modulo " + (idModulo + 1),
   };
 
-  async function handleStartCourse (e) {
-    e.preventDefault(); 
+  async function handleStartCourse(e) {
+    e.preventDefault();
     const moduleUrl = `/courses/${modulo.id}`;
     try {
       const response = await fetch("/api/updateProgress", {
@@ -49,12 +49,10 @@ export function ModuleCard({ idModulo, moduleKey }) {
     } catch (error) {
       console.error("Error al registrar el progreso del módulo:", error);
     }
-  };
+  }
 
   return (
-    <div
-      className="absolute top-30 w-3xs bg-white z-30 flex rounded-xl shadow-lg"
-    >
+    <div className="absolute top-20 sm:!top-30 w-3xs bg-white z-100 flex rounded-xl shadow-lg">
       <div className="relative top-0 left-0 w-full h-full flex flex-col items-left px-4 py-4">
         <h1 className="text-black text-lg font-bold pb-2">{nombresModulos}</h1>
         <p className="text-black text-base pb-2">{descripcionesModulos}</p>

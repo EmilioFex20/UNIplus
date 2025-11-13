@@ -4,7 +4,12 @@ import Image from "next/image";
 import { ModuleCard } from "./moduleCard";
 import { cursosData } from "@/app/data/cursosData";
 
-export function CourseCard({ idCurso, idCursoActivo, setIdCursoActivo, moduleKey }) {
+export function CourseCard({
+  idCurso,
+  idCursoActivo,
+  setIdCursoActivo,
+  moduleKey,
+}) {
   const isOpen = idCursoActivo === idCurso;
 
   const showInfoHandler = () => {
@@ -13,7 +18,6 @@ export function CourseCard({ idCurso, idCursoActivo, setIdCursoActivo, moduleKey
   const curso = cursosData[idCurso];
   const imagenModulo = curso.imagen;
   const posicionModuloInfo = curso.posicion;
-
 
   return (
     <>
@@ -26,7 +30,7 @@ export function CourseCard({ idCurso, idCursoActivo, setIdCursoActivo, moduleKey
             alt="Logo"
             width={70}
             height={70}
-            className="w-24 h-24 rounded-full bg-sky-200 flex items-center justify-center transition-all duration-300 z-10 hover:bg-sky-300 focus:outline-none focus:ring-4 focus:ring-sky-200"
+            className="w-18 h-18 sm:w-24 sm:h-24 rounded-full bg-sky-200 flex items-center justify-center transition-all duration-300 z-10 hover:bg-sky-300 focus:outline-none focus:ring-4 focus:ring-sky-200"
           >
             <div className="w-2/3 h-2/3 relative">
               <Image
@@ -38,11 +42,8 @@ export function CourseCard({ idCurso, idCursoActivo, setIdCursoActivo, moduleKey
               />
             </div>
           </button>
-          {isOpen && (
-              <ModuleCard idModulo={idCurso} moduleKey={moduleKey} />
-          )}
+          {isOpen && <ModuleCard idModulo={idCurso} moduleKey={moduleKey} />}
         </div>
-
       </div>
     </>
   );

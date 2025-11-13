@@ -4,7 +4,7 @@ export const cursosData = [
     descripcion:
       "Explora el crecimiento personal a través de la autoconciencia, la gestión emocional y el desarrollo de habilidades para una vida plena.",
     imagen: "/logoDesarrolloPersonal.svg",
-    posicion: "left-[10%] top-[25%]",
+    posicion: "left-[50%] top-[10%] sm:!left-[10%] sm:!top-[25%]",
     modulos: [
       {
         nombre: "Autoconocimiento y autoestima",
@@ -61,7 +61,7 @@ export const cursosData = [
     descripcion:
       "Aprende a manejar tu dinero de forma inteligente, comprende conceptos económicos básicos y toma decisiones financieras acertadas.",
     imagen: "/logoFinanzasPersonales.svg",
-    posicion: "left-[28%] top-[12%]",
+    posicion: "left-[65%] top-[16%] sm:!left-[28%] sm:!top-[12%]",
     modulos: [
       {
         nombre: "¿Qué es el dinero y por qué importa?",
@@ -560,7 +560,7 @@ export const cursosData = [
     descripcion:
       "Domina las herramientas esenciales de la era digital, desde el uso de computadoras hasta la navegación segura por Internet.",
     imagen: "/logoTecnolBasica.svg",
-    posicion: "left-[40%] top-[20%]",
+    posicion: "left-[60%] top-[28%] sm:!left-[40%] sm:!top-[20%]",
     modulos: [
       {
         nombre: "Fundamentos de computación",
@@ -617,7 +617,7 @@ export const cursosData = [
     descripcion:
       "Desarrolla tu creatividad y fortalece habilidades blandas como el pensamiento crítico, trabajo en equipo y resolución de problemas.",
     imagen: "/logoArte.svg",
-    posicion: "left-[60%] top-[29%]",
+    posicion: "left-[50%] top-[40%] sm:!left-[60%] sm:!top-[29%]",
     modulos: [
       {
         nombre: "Pensamiento creativo",
@@ -674,7 +674,7 @@ export const cursosData = [
     descripcion:
       "Mejora tu calidad de vida con hábitos saludables, manejo del estrés y cuidados físicos y mentales fundamentales.",
     imagen: "/logoBienestarSalud.svg",
-    posicion: "left-[75%] top-[30%]",
+    posicion: "left-[53%] top-[55%] sm:!left-[75%] sm:!top-[30%]",
     modulos: [
       {
         nombre: "Salud física y mental",
@@ -731,7 +731,7 @@ export const cursosData = [
     descripcion:
       "Conoce los fundamentos para manejar tu dinero, invertir y planificar tu futuro financiero.",
     imagen: "/logoEmprenNegocios.svg",
-    posicion: "left-[90%] top-[28%]",
+    posicion: "left-[50%] top-[65%] sm:!left-[90%] sm:!top-[28%]",
     modulos: [
       {
         nombre: "Introducción al emprendimiento",
