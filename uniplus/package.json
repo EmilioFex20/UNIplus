@@ -15,10 +15,10 @@
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.15.0",
     "mongoose": "^8.13.1",
-    "next": "^15.3.1",
+    "next": "^15.3.6",
     "phaser": "^3.88.2",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1",
     "swr": "^2.3.3"
   },
   "devDependencies": {
